@@ -374,7 +374,7 @@ a {
     cursor: pointer;
   }
   .kbms-nav-toggle span {
-    width: 50px;
+    width: 30px;
     height: 15px;
     display: block;
     background: var(--kbms-white);
@@ -670,14 +670,13 @@ a {
     height: 100%;
   }
   .kbms-slide {
-    height: 700px;
+    height: clamp(250px, 60vh, 700px);
     flex-shrink: 0;
     width: 100%;
     user-select: none;
     cursor: pointer;
   }
   .kbms-slide img {
-    max-height: 700px;
     user-drag: none;
     -webkit-user-drag: none;
     -moz-user-drag: none;
@@ -688,75 +687,11 @@ a {
     object-fit: cover;
   }
 
-  /* =========================================================
-    SECTION UMUM & GRID
-==========================================================*/
-  /* area slider */
-  .kbms-hero-slider {
-    width: 100%;
-    max-width: 100%;
-  }
-  .kbms-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    height: 388px;
-    box-shadow: var(--kbms-shadow);
-    background: #e5e7eb;
-  }
-  .kbms-slider__wrapper {
-    display: flex;
-    height: 100%;
-    transition: transform 0.4s ease-in-out; /* JS akan mengubah transform */
-  }
-  .kbms-slide {
-    flex: 0 0 100%;
-    user-select: none;
-    cursor: pointer;
-  }
-  .kbms-slide img {
-    max-height: 388px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* =========================================================
-    SECTION UMUM & GRID
-==========================================================*/
-  /* area slider */
-  .kbms-hero-slider {
-    width: 100%;
-    max-width: 100%;
-  }
-  .kbms-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    height: 300px;
-    box-shadow: var(--kbms-shadow);
-    background: #e5e7eb;
-  }
-  .kbms-slider__wrapper {
-    display: flex;
-    height: 100%;
-    transition: transform 0.4s ease-in-out; /* JS akan mengubah transform */
-  }
-  .kbms-slide {
-    flex: 0 0 100%;
-    user-select: none;
-    cursor: pointer;
-  }
-  .kbms-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-}
 /* Footer grid untuk desktop besar */
 @media (min-width: 900px) {
+  .kbms-hero-slider {
+    width: 100%;
+    max-width: 100%;
   .kbms-slider__wrapper {
     display: flex;
     transition: transform 0.4s ease-in-out;
@@ -781,39 +716,7 @@ a {
     object-fit: cover;
   }
 
-  /* =========================================================
-    SECTION UMUM & GRID
-==========================================================*/
-  /* area slider */
-  .kbms-hero-slider {
-    width: 100%;
-    max-width: 100%;
-  }
-  .kbms-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    height: 388px;
-    box-shadow: var(--kbms-shadow);
-    background: #e5e7eb;
-  }
-  .kbms-slider__wrapper {
-    display: flex;
-    height: 100%;
-    transition: transform 0.4s ease-in-out; /* JS akan mengubah transform */
-  }
-  .kbms-slide {
-    flex: 0 0 100%;
-    user-select: none;
-    cursor: pointer;
-  }
-  .kbms-slide img {
-    max-height: 388px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+
   .kbms-hero .kbms-container {
     align-items: flex-start;
   }
