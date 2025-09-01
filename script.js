@@ -109,6 +109,43 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+const searchInput = document.getElementById("q");
+const suggestionsEl = document.getElementById("suggestions");
+const products = ["Tabungan Reguler","Deposito Berjangka","Pembiayaan Syariah","Pembukaan Rekening","Mobile Banking"];
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  suggestionsEl.innerHTML = "";
+  if (!query) {
+    suggestionsEl.style.display = "none";
+    return;
+  }
+
+  const matches = products.filter(p => p.toLowerCase().includes(query));
+  if (matches.length === 0) {
+    suggestionsEl.style.display = "none";
+    return;
+  }
+
+  suggestionsEl.style.display = "block";
+  matches.forEach(match => {
+    const li = document.createElement("li");
+    li.textContent = match;
+    li.addEventListener("click", () => {
+      searchInput.value = match;
+      suggestionsEl.innerHTML = "";
+      suggestionsEl.style.display = "none";
+    });
+    suggestionsEl.appendChild(li);
+  });
+});
+
+document.addEventListener("click", e => {
+  if (!e.target.closest(".kbms-search-wrapper")) {
+    suggestionsEl.innerHTML = "";
+    suggestionsEl.style.display = "none";
+  }
+});
 
   // ---------- FOOTER YEAR ----------
   const yearEl = document.getElementById("year");
