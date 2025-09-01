@@ -9,7 +9,6 @@
   --kbms-white: #ffffff;
   --kbms-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 
-  --kbms-maxw: 1100px;
   --kbms-radius: 12px;
 
   --kbms-font-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
@@ -53,7 +52,6 @@ a {
 }
 .kbms-container {
   width: 100%;
-  max-width: var(--kbms-maxw);
   margin: 0 auto;
   padding: 0 16px;
 }
