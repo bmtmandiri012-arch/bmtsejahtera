@@ -109,7 +109,7 @@ a {
   color: inherit;
 }
 .kbms-brand__logo {
-  height: 70px;
+  height: 55px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -771,6 +771,40 @@ a {
   .kbms-grid--2 {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* ==== PERBAIKAN ZOOM OUT OTOMATIS ==== */
+
+/* 1. Pastikan hero section tidak pakai 100vw */
+.kbms-hero {
+  width: 100%;      /* ganti dari 100vw ke 100% */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2. Semua gambar otomatis menyesuaikan layar */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 3. Perbaikan link skip content (biar gak dorong layout) */
+a[href="#kbms-main"] {
+  position: absolute;
+  left: -9999px;   /* dulu 2000px bikin layar melebar */
+}
+a[href="#kbms-main"]:focus {
+  left: 0;
+}
+
+/* 4. Pastikan body tidak ada overflow horizontal */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
   .kbms-hero .kbms-container {
     align-items: flex-start;
   }
