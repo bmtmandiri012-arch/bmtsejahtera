@@ -480,6 +480,7 @@ a {
   .kbms-nav a.is-active {
     background: rgba(255, 255, 255, 0.22);
   }/* Mobile: tampilkan nav ketika is-open */
+
 .kbms-nav.is-open {
   display: flex;
   flex-direction: column;
@@ -666,6 +667,47 @@ a {
     font-size: 13px;
     color: #94a3b8;
   }
+  html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Hero section */
+  .kbms-hero {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Semua container jangan lebih dari layar */
+  .kbms-container,
+  .kbms-wrapper,
+  header,
+  footer,
+  section {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Gambar responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Skip link biar tidak dorong layout */
+  a[href="#kbms-main"] {
+    position: absolute;
+    left: -9999px;
+  }
+  a[href="#kbms-main"]:focus {
+    left: 0;
+  }
+}
 
 /* Nav default saat desktop (min 720px) */
 @media (min-width: 721px) {
