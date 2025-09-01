@@ -117,7 +117,7 @@ a {
 }
 
 .kbms-brand__title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 0;
   color: #fff;
@@ -367,59 +367,6 @@ a {
 
 /* Mobile kecil (max 639px) */
 @media (max-width: 639px) {
-  html, body {
-  overflow-x: hidden; /* cegah scroll horizontal */
-}
-
-/* Biar gambar & video fleksibel */
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ====== Slider Fix ====== */
-.slider, .carousel {
-  overflow: hidden;
-  touch-action: pan-y pinch-zoom;
-  -ms-touch-action: pan-y pinch-zoom; /* untuk browser lama */
-}
-    
-  /* Hero section */
-  .kbms-hero {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  /* Semua container jangan lebih dari layar */
-  .kbms-container,
-  .kbms-wrapper,
-  header,
-  footer,
-  section {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  /* Gambar responsive */
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Skip link biar tidak dorong layout */
-  a[href="#kbms-main"] {
-    position: absolute;
-    left: -9999px;
-  }
-  a[href="#kbms-main"]:focus {
-    left: 0;
-  }
-}
-
    .kbms-nav-toggle {
     flex-direction: column;
     margin-left: auto;
