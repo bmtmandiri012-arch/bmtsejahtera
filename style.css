@@ -205,16 +205,39 @@ a {
 .kbms-hero-content p {
   color: var(--kbms-muted);
 }
+/* ===== SLIDER CORE (rapi & cukup sekali) ===== */
+.kbms-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.kbms-slider__wrapper {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.28s ease-out; /* default; saat drag dimatikan via JS */
+}
+
 .kbms-slide {
   min-width: 100%;
+  flex: 0 0 100%;
   height: clamp(250px, 60vh, 700px);
-  background-size: cover;
-  background-position: center;
-  flex-shrink: 0;
-  width: 100%;
   user-select: none;
-  cursor: pointer;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: pan-y; /* penting: biar geser horizontal nggak bentrok scroll */
 }
+
+.kbms-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 .kbms-slide img {
   overflow-x: hidden;
   object-position: center top;
@@ -229,20 +252,6 @@ a {
   display: block;
 }
 
-.kbms-slider {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: auto;
-  box-shadow: var(--kbms-shadow);
-  background: #e5e7eb;
-}
-.kbms-slider__wrapper {
-  width: 100%;
-  display: flex;
-  height: 100%;
-  transition: transform 0.4s ease-in-out; /* JS akan mengubah transform */
-}
 
 /* =========================================================
     SECTION UMUM & GRID
