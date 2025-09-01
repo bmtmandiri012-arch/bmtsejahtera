@@ -936,4 +936,16 @@ html, body {
     display: block;
   }
 }
+  /* =====================
+   Fix zoom & slider
+   ===================== */
+html, body {
+  overflow-x: hidden; /* cegah scroll horizontal */
+}
+
+.slider, .carousel {
+  overflow: hidden;       /* gambar tidak keluar area */
+  touch-action: pan-y;    /* tetap bisa swipe kiri-kanan */
+}
+
 
