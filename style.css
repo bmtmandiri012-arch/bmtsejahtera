@@ -452,7 +452,7 @@ img, video, iframe {
     color: inherit;
   }
   .kbms-brand__logo {
-  height: 55px;
+  height: 60px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -460,7 +460,7 @@ img, video, iframe {
 }
 
   .kbms-brand__title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     margin: 0;
     color: #fff;
@@ -519,9 +519,10 @@ img, video, iframe {
     cursor: pointer;
   }
    .kbms-nav-toggle span {
+    gap: 3px;
     display: block;
     width: 30px;
-    height: 3px;
+    height: 5px;
     background: var(--kbms-white);
     border-radius: 2px;
   }
