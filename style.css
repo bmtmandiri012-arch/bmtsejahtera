@@ -390,21 +390,24 @@ a {
 
 /* Mobile (<= 720px) */
 @media (max-width: 720px) {
-  
+ /* Mobile (<= 720px) */
+@media (max-width: 720px) {
+
   .kbms-brand {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
     color: inherit;
   }
+
   .kbms-brand__logo {
-  height: 60px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-  background: transparent;
-}
+    height: 50px; /* sedikit lebih kecil biar proporsional */
+    width: auto;
+    display: block;
+    object-fit: contain;
+    background: transparent;
+  }
 
   .kbms-brand__title {
     font-size: 1rem;
@@ -412,11 +415,13 @@ a {
     margin: 0;
     color: #fff;
   }
+
   .kbms-brand__tagline {
     margin-left: auto;
     font-size: 12px;
     opacity: 0.9;
   }
+
   .kbms-search {
     width: 100%;
     max-width: 480px;
@@ -424,12 +429,14 @@ a {
     gap: 6px;
     align-items: center;
   }
+
   .kbms-search input {
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
     width: 100%;
   }
+
   .kbms-search button {
     background: var(--kbms-accent);
     color: #1f2937;
@@ -439,13 +446,16 @@ a {
     cursor: pointer;
     font-weight: 600;
   }
+
+  /* Nav default hidden */
   .kbms-nav {
-    padding-left: 4px;
     display: none;
-    gap: 5px;
     flex-wrap: wrap;
+    gap: 5px;
     background: transparent;
+    padding-left: 4px;
   }
+
   .kbms-nav a {
     padding: 8px 12px;
     border-radius: 10px;
@@ -455,44 +465,48 @@ a {
     transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
     background: transparent !important;
   }
-  
-  .kbms-nav-toggle {
-    gap: 7px;
-    flex-direction: column;
-    margin-left: auto;
-    display: flex;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-   .kbms-nav-toggle span {
-    gap: 3px;
-    display: block;
-    width: 30px;
-    height: 5px;
-    background: var(--kbms-white);
-    border-radius: 2px;
-  }
 
   .kbms-nav a:hover {
     background: rgba(255, 255, 255, 0.14);
     color: var(--kbms-accent);
     transform: translateY(-1px);
   }
+
   .kbms-nav a.is-active {
     background: rgba(255, 255, 255, 0.22);
-  }/* Mobile: tampilkan nav ketika is-open */
+  }
 
-.kbms-nav.is-open {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: linear-gradient(180deg, var(--kbms-brand-1), var(--kbms-brand-2));
-  padding: 12px;
-  border-radius: 8px;
+  /* Toggle hamburger */
+  .kbms-nav-toggle {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px; /* lebih rapat */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px; /* biar tombol lebih gampang di-tap */
+  }
+
+  .kbms-nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px; /* lebih tipis */
+    background: var(--kbms-white);
+    border-radius: 2px;
+  }
+
+  /* Mobile: tampilkan nav ketika is-open */
+  .kbms-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: linear-gradient(180deg, var(--kbms-brand-1), var(--kbms-brand-2));
+    padding: 12px;
+    border-radius: 8px;
+  }
 }
-
-  
 
   /* =========================================================
     HERO & SLIDER
