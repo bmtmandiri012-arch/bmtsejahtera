@@ -850,3 +850,77 @@ html, body {
     align-items: flex-start;
   }
 }
+  /* ... semua CSS umum kamu ... */
+
+/* ... semua CSS media query lama ... */
+
+/* ===================================
+   FIX UNTUK SKIP LINK
+   =================================== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ===================================
+   FIX UNTUK MOBILE
+   =================================== */
+@media (max-width: 720px) {
+  html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .kbms-hero,
+  .kbms-container,
+  .kbms-wrapper,
+  header,
+  footer,
+  section {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 639px) {
+  html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .kbms-hero,
+  .kbms-container,
+  .kbms-wrapper,
+  header,
+  footer,
+  section {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
