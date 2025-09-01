@@ -52,6 +52,7 @@ a {
   text-decoration: none;
 }
 .kbms-container {
+  width: 100%;
   max-width: var(--kbms-maxw);
   margin: 0 auto;
   padding: 0 16px;
