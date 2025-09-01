@@ -390,6 +390,7 @@ a {
 
 /* Mobile (<= 720px) */
 @media (max-width: 720px) {
+  
   .kbms-brand {
     display: flex;
     align-items: center;
@@ -673,7 +674,19 @@ a {
     padding: 0;
     width: 100%;
   }
-
+  * {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  img, video {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+  header, footer, section, div {
+    margin: 0 auto !important;
+    padding: 0 10px ! important;
+    
   /* Hero section */
   .kbms-hero {
     width: 100%;
@@ -710,7 +723,7 @@ a {
 }
 
 /* Nav default saat desktop (min 720px) */
-@media (min-width: 721px) {
+@media (min-width: 735px) {
   .kbms-slider__wrapper {
     display: flex;
     transition: transform 0.4s ease-in-out;
