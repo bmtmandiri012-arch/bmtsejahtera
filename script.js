@@ -1,107 +1,116 @@
+// script.js
 document.addEventListener("DOMContentLoaded", () => {
-  // ========================
-  // NAV TOGGLE
-  // ========================
+  // ---------- NAV TOGGLE ----------
   const toggle = document.querySelector(".kbms-nav-toggle");
   const nav = document.querySelector(".kbms-nav");
   if (toggle && nav) {
     toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
   }
 
-  // ========================
-  // SLIDER
-  // ========================
-  const wrapper = document.querySelector(".kbms-slider__wrapper");
-  if (!wrapper) {
-    console.warn("Slider: .kbms-slider__wrapper tidak ditemukan — cek HTML/class name.");
+  // ---------- SLIDER ----------
+  const container = document.querySelector(".kbms-slider");
+  const track = document.querySelector(".kbms-slider__wrapper");
+  if (!container || !track) {
+    console.warn("Slider: elemen tidak lengkap.");
   } else {
-    const slides = wrapper.querySelectorAll(".kbms-slide");
-    if (!slides || slides.length === 0) {
-      console.warn("Slider: tidak ada .kbms-slide di dalam wrapper.");
+    const slides = track.querySelectorAll(".kbms-slide");
+    if (!slides.length) {
+      console.warn("Slider: tidak ada .kbms-slide.");
     } else {
+      // Pastikan setiap slide pas 1 layar
+      slides.forEach(s => {
+        s.style.minWidth = "100%";
+        s.style.flex = "0 0 100%";
+      });
+
       let index = 0;
-      let autoSlideTimer = null;
-      let isDragging = false;
+      let dragging = false;
       let startX = 0;
       let deltaX = 0;
-      const threshold = 50; // minimal jarak swipe
+      let slideW = container.clientWidth;
+      let autoTimer = null;
 
-      function showSlide(i) {
+      const setX = (x, animate = false) => {
+        track.style.transition = animate ? "transform 280ms ease-out" : "none";
+        track.style.transform = `translate3d(${x}px,0,0)`;
+      };
+
+      const goTo = (i, animate = true) => {
         index = (i + slides.length) % slides.length;
-        wrapper.style.transition = "transform 0.4s ease-in-out";
-        wrapper.style.transform = `translateX(-${index * 100}%)`;
-      }
+        setX(-index * slideW, animate);
+      };
 
-      // inisialisasi
-      wrapper.style.willChange = "transform";
-      showSlide(0);
-
-      // auto slide
-      function startAuto() {
+      const startAuto = () => {
         stopAuto();
-        autoSlideTimer = setInterval(() => showSlide(index + 1), 5000);
-      }
-      function stopAuto() {
-        if (autoSlideTimer) {
-          clearInterval(autoSlideTimer);
-          autoSlideTimer = null;
-        }
-      }
+        autoTimer = setInterval(() => goTo(index + 1, true), 5000);
+      };
+      const stopAuto = () => {
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = null;
+      };
+
+      // Init
+      track.style.willChange = "transform";
+      track.style.backfaceVisibility = "hidden";
+      track.querySelectorAll("img").forEach(img => {
+        img.setAttribute("draggable", "false");
+        img.setAttribute("decoding", "async");
+      });
+      goTo(0, false);
       startAuto();
 
-      // disable drag gambar
-      wrapper.querySelectorAll("img").forEach(img => img.setAttribute("draggable", "false"));
-
-      // pointer events (support mouse & touch)
-      wrapper.addEventListener("pointerdown", (e) => {
-        isDragging = true;
+      // Pointer events
+      container.style.touchAction = "pan-y"; // biar horizontal drag tidak bentrok dengan scroll
+      container.addEventListener("pointerdown", (e) => {
+        dragging = true;
         startX = e.clientX;
         deltaX = 0;
-        wrapper.style.transition = "none"; // matikan animasi saat tarik
         stopAuto();
-        wrapper.setPointerCapture && wrapper.setPointerCapture(e.pointerId);
+        setX(-index * slideW, false);
+        try { track.setPointerCapture && track.setPointerCapture(e.pointerId); } catch {}
       });
 
-      wrapper.addEventListener("pointermove", (e) => {
-        if (!isDragging) return;
+      container.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
         deltaX = e.clientX - startX;
-        wrapper.style.transform = `translateX(calc(-${index * 100}% + ${deltaX}px))`;
+        // geser mengikuti jari
+        setX(-index * slideW + deltaX, false);
       });
 
-      function endDrag(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        wrapper.style.transition = "transform 0.4s ease-in-out";
-
-        if (Math.abs(deltaX) > threshold) {
-          if (deltaX < 0) showSlide(index + 1);
-          else showSlide(index - 1);
+      const endDrag = (e) => {
+        if (!dragging) return;
+        dragging = false;
+        // Threshold adaptif: 8% dari lebar slide (min 30px, max 80px)
+        const thresh = Math.max(30, Math.min(80, slideW * 0.08));
+        if (Math.abs(deltaX) > thresh) {
+          goTo(deltaX < 0 ? index + 1 : index - 1, true);
         } else {
-          showSlide(index);
+          goTo(index, true);
         }
         deltaX = 0;
         startAuto();
-        try { wrapper.releasePointerCapture && wrapper.releasePointerCapture(e.pointerId); } catch (_) {}
-      }
+        try { track.releasePointerCapture && track.releasePointerCapture(e.pointerId); } catch {}
+      };
 
-      wrapper.addEventListener("pointerup", endDrag);
-      wrapper.addEventListener("pointercancel", endDrag);
-      wrapper.addEventListener("pointerleave", (e) => { if (isDragging) endDrag(e); });
+      container.addEventListener("pointerup", endDrag);
+      container.addEventListener("pointercancel", endDrag);
+      container.addEventListener("pointerleave", endDrag);
 
-      // keyboard (opsional)
+      // Keyboard (opsional)
       document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft") { showSlide(index - 1); stopAuto(); startAuto(); }
-        if (e.key === "ArrowRight") { showSlide(index + 1); stopAuto(); startAuto(); }
+        if (e.key === "ArrowLeft") { goTo(index - 1); stopAuto(); startAuto(); }
+        if (e.key === "ArrowRight") { goTo(index + 1); stopAuto(); startAuto(); }
       });
 
-      // re-init saat resize
-      window.addEventListener("resize", () => showSlide(index));
+      // Resize
+      window.addEventListener("resize", () => {
+        slideW = container.clientWidth;
+        goTo(index, false);
+      });
     }
   }
 
-  // ========================
-  // FOOTER YEAR
-  // ========================
+  // ---------- FOOTER YEAR ----------
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
