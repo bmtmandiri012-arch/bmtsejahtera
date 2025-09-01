@@ -907,7 +907,6 @@ html, body {
 
 .slider, .carousel {
   overflow: hidden;       /* gambar tidak keluar area */
-  touch-action: pan-y;    /* tetap bisa swipe kiri-kanan */
 }
 
 
