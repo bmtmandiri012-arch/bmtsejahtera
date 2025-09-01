@@ -376,7 +376,7 @@ a {
     cursor: pointer;
   }
   .kbms-nav-toggle span {
-    width: 30px;
+    width: 25px;
     height: 15px;
     display: block;
     background: var(--kbms-white);
@@ -398,7 +398,7 @@ a {
     color: inherit;
   }
   .kbms-brand__logo {
-  height: 70px;
+  height: 55px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -495,7 +495,7 @@ a {
     HERO & SLIDER
 ==========================================================*/
   .kbms-hero {
-    width: 100vw;
+    width: 100%;
     padding: 0;
     max-width: 100%;
     margin: 0;
@@ -774,9 +774,8 @@ a {
 
   /* ==== PERBAIKAN ZOOM OUT OTOMATIS ==== */
 
-/* 1. Pastikan hero section tidak pakai 100vw */
 .kbms-hero {
-  width: 100%;      /* ganti dari 100vw ke 100% */
+  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
