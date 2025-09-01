@@ -399,10 +399,13 @@ a {
     color: inherit;
   }
   .kbms-brand__logo {
-    flex: gap;
-    height: 70px;
-    width: auto;
-  }
+  height: 70px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  background: transparent;
+}
+
   .kbms-brand__title {
     font-size: 1.2rem;
     font-weight: 600;
