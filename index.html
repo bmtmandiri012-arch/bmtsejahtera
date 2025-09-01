@@ -51,7 +51,14 @@
 
         <form class="kbms-search" role="search" action="#" method="get">
           <label class="visually-hidden" for="q">Cari</label>
-          <input id="q" name="q" type="search" placeholder="Cari produk, layanan..." />
+            <input id="q" name="q" type="search" placeholder="Cari produk, layanan..." autocomplete="off" list="produk-list" />
+              <datalist id="produk-list">
+                <option value="Tabungan Reguler">
+                <option value="Deposito Berjangka">
+                <option value="Pembiayaan Syariah">
+                <option value="Pembukaan Rekening">
+                <option value="Mobile Banking">
+              </datalist>           
           <button type="submit">🔍 Cari</button>
         </form>
       </div>
