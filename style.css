@@ -266,7 +266,8 @@ a {
 }
 
 .kbms-slide img {
-   width: 100%;
+  object-fit: contain;
+  width: 100%;
   height: 100%;
   overflow-x: hidden;
   object-position: center top;
@@ -276,8 +277,6 @@ a {
   -o-user-drag: none;
   display: block;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
   display: block;
 }
 
@@ -644,6 +643,7 @@ a {
 }
 
 .kbms-slide img {
+  object-fit: cover;
    width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -654,8 +654,6 @@ a {
   -o-user-drag: none;
   display: block;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
   display: block;
 }
 
@@ -769,110 +767,7 @@ a {
     color: #94a3b8;
   }
 
-/* Nav default saat desktop (min 720px) */
-@media (min-width: 735px) {
-  .kbms-slider__wrapper {
-    display: flex;
-    transition: transform 0.4s ease-in-out;
-    height: 100%;
-  }
-  .kbms-slide {
-    height: clamp(250px, 60vh, 700px);
-    flex-shrink: 0;
-    width: 100%;
-    user-select: none;
-    cursor: pointer;
-  }
-  .kbms-slide img {
-    user-drag: none;
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  }
 
-/* Footer grid untuk desktop besar */
-@media (min-width: 900px) {
-  .kbms-hero-slider {
-    width: 100%;
-    max-width: 100%;
-  .kbms-slider__wrapper {
-    display: flex;
-    transition: transform 0.4s ease-in-out;
-    height: 100%;
-  }
-  .kbms-slide {
-    height: 700px;
-    flex-shrink: 0;
-    width: 100%;
-    user-select: none;
-    cursor: pointer;
-  }
-  .kbms-slide img {
-    max-height: 700px;
-    user-drag: none;
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  }
-
-
-  .kbms-hero .kbms-container {
-    align-items: flex-start;
-  }
-  .kbms-footer__inner {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
-}
-
-/* Desktop lebar (min 1000px) */
-@media (min-width: 1000px) {
-  /* =========================================================
-    SECTION UMUM & GRID
-==========================================================*/
-  /* area slider */
-  .kbms-hero-slider {
-    width: 100%;
-    max-width: 100%;
-  }
-  .kbms-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    height: 700px;
-    box-shadow: var(--kbms-shadow);
-    background: #e5e7eb;
-  }
-  .kbms-slider__wrapper {
-    display: flex;
-    height: 100%;
-    transition: transform 0.4s ease-in-out; /* JS akan mengubah transform */
-  }
-  .kbms-slide {
-    flex: 0 0 100%;
-    user-select: none;
-    cursor: pointer;
-  }
-  .kbms-slide img {
-    max-height: 700px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .kbms-grid--3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .kbms-grid--2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   /* ==== PERBAIKAN ZOOM OUT OTOMATIS ==== */
 
