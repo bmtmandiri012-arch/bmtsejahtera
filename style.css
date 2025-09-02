@@ -258,7 +258,7 @@ a {
 .kbms-slide {
   min-width: 100%;
   flex: 0 0 100%;
-  height: clamp(300px, 70vh, 700px);
+  height: clamp(350px, 70vh, 700px);
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
