@@ -109,85 +109,57 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+// ---------- SEARCH SUGGESTIONS ----------
 const searchInput = document.getElementById("q");
-const suggestionsEl = document.getElementById("suggestions");
-const products = ["Tabungan Reguler","Deposito Berjangka","Pembiayaan Syariah","Pembukaan Rekening","Mobile Banking"];
-
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.toLowerCase();
-  suggestionsEl.innerHTML = "";
-  if (!query) {
-    suggestionsEl.style.display = "none";
-    return;
-  }
-
-  const matches = products.filter(p => p.toLowerCase().includes(query));
-  if (matches.length === 0) {
-    suggestionsEl.style.display = "none";
-    return;
-  }
-
-  suggestionsEl.style.display = "block";
-  matches.forEach(match => {
-    const li = document.createElement("li");
-    li.textContent = match;
-    li.addEventListener("click", () => {
-      searchInput.value = match;
-      suggestionsEl.innerHTML = "";
-      suggestionsEl.style.display = "none";
-    });
-    suggestionsEl.appendChild(li);
-  });
-});
-
-document.addEventListener("click", e => {
-  if (!e.target.closest(".kbms-search-wrapper")) {
-    suggestionsEl.innerHTML = "";
-    suggestionsEl.style.display = "none";
-  }
-});
-const product = [
-  "Tabungan Reguler"
-  "Deposito Berjangka"
-  "Pembiayaan Syariah"
-  "Pembukaan Rekening"
-];
-const input = document.getElementById("q);
 const suggestionsList = document.getElementById("suggestions");
 
-if (input && suggestionsList) {
-  input.addEventListener("input", () => {
-    const value= input.value.toLowerCase();
-    suggestionsList.inner.HTML = "";
-if (value) {
-  const filtered = product.filler(item => item.toLowerCase().includes(value)
-  );
-  if (filtered.length > 0) {
-    suggestionsList.style.display = "block";
-    filtered.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      li.addEventListener("click", () => {
-        input.value =item;
-        suggestionsList.innerHTML = "";
-        suggestionsList.style.display = "none";
+// Daftar produk (bisa tambah sesuka hati)
+const produkData = [
+  "Tabungan Reguler",
+  "Deposito Berjangka",
+  "Pembiayaan Syariah",
+  "Pembukaan Rekening",
+  "Mobile Banking"
+];
+
+if (searchInput && suggestionsList) {
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase().trim();
+    suggestionsList.innerHTML = "";
+
+    if (query.length === 0) {
+      suggestionsList.style.display = "none";
+      return;
+    }
+
+    const filtered = produkData.filter(item =>
+      item.toLowerCase().includes(query)
+    );
+
+    if (filtered.length > 0) {
+      filtered.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        li.addEventListener("click", () => {
+          searchInput.value = item;
+          suggestionsList.style.display = "none";
+        });
+        suggestionsList.appendChild(li);
       });
-        suggestionsList.appendChild(li)
-    });
-  } else {
-    suggestionsList.style.display = "none";
-  } else {
-    suggestionsList.syle.display ="none";
-  
-  document.addListener("click", e => {
-    if (!e.target.closest(".kbms-search-wrapper")) {
-      suggestionsList.innerHTML ="";
-      suggestionsList.style.display ="none";
-      }
-    });
-  }
-      
-        
+      suggestionsList.style.display = "block";
+    } else {
+      suggestionsList.style.display = "none";
+    }
+  });
+
+  // Klik luar → tutup suggestion
+  document.addEventListener("click", (e) => {
+    if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+      suggestionsList.style.display = "none";
+    }
+  });
+}
+
       
   // ---------- FOOTER YEAR ----------
   const yearEl = document.getElementById("year");
