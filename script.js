@@ -146,7 +146,37 @@ document.addEventListener("click", e => {
     suggestionsEl.style.display = "none";
   }
 });
+const product = [
+  "Tabungan Reguler"
+  "Deposito Berjangka"
+  "Pembiayaan Syariah"
+  "Pembukaan Rekening"
+];
+const input = document.getElementById("q);
+const suggestionsList = document.getElementById("suggestions");
 
+if (input && suggestionList) {
+  input.addEventListener ("input", () => {
+    cost value= input.value.toLowerCase();
+    suggestionsList.inner.HTML = "";
+if (value) {
+  constfiltered = product.filler(item => item.toLowerCase().includes(value)
+  );
+  if (filtered.length > 0) {
+    suggestionsList.style.display = "block";
+    filtered.forEach(item => {
+      const lli = document.createElement("li");
+      li.testContent = item;
+      li.addEventListener("click", () => {
+        input.value =item;
+        suggestionsList.innerHTML = "";
+        suggestionsList.style.display = "none";
+      });
+        suggestionsList.appendChild(li)
+    });
+      
+        
+      
   // ---------- FOOTER YEAR ----------
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
