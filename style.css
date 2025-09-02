@@ -368,6 +368,24 @@ a {
   font-size: 13px;
   color: #94a3b8;
 }
+/* Skip link untuk aksesibilitas */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #004080;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: top 0.3s;
+  font-size: 14px;
+}
+
+.skip-link:focus {
+  top: 10px; /* Muncul saat difokuskan (tab keyboard) */
+}
 
 /* =========================================================
     RESPONSIVE HEADER
