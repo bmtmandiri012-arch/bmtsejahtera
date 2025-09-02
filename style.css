@@ -171,7 +171,7 @@ a {
   position: absolute;
   left: 0;
   right: 0;
-  listsyle: none;
+  list-syle: none;
   width: 100%;
   z-index: 1000;
   display: none; /* sembunyi dulu */
@@ -442,8 +442,6 @@ a {
   }
 }
 
-/* Mobile (<= 720px) */
-@media (max-width: 720px) {
  /* Mobile (<= 720px) */
 @media (max-width: 720px) {
 
@@ -507,7 +505,7 @@ a {
 }
 .suggestions-list {
   top: 100%;
-  position: abssolute;
+  position: absolute;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -923,6 +921,7 @@ html, body {
 }
 .skip-link:focus {
   left: 0;
+}
 }
 
 /* ===================================
