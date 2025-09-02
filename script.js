@@ -155,18 +155,18 @@ const product = [
 const input = document.getElementById("q);
 const suggestionsList = document.getElementById("suggestions");
 
-if (input && suggestionList) {
-  input.addEventListener ("input", () => {
-    cost value= input.value.toLowerCase();
+if (input && suggestionsList) {
+  input.addEventListener("input", () => {
+    const value= input.value.toLowerCase();
     suggestionsList.inner.HTML = "";
 if (value) {
-  constfiltered = product.filler(item => item.toLowerCase().includes(value)
+  const filtered = product.filler(item => item.toLowerCase().includes(value)
   );
   if (filtered.length > 0) {
     suggestionsList.style.display = "block";
     filtered.forEach(item => {
-      const lli = document.createElement("li");
-      li.testContent = item;
+      const li = document.createElement("li");
+      li.textContent = item;
       li.addEventListener("click", () => {
         input.value =item;
         suggestionsList.innerHTML = "";
@@ -178,10 +178,14 @@ if (value) {
     suggestionsList.style.display = "none";
   } else {
     suggestionsList.syle.display ="none";
+  
   document.addListener("click", e => {
     if (!e.target.closest(".kbms-search-wrapper")) {
       suggestionsList.innerHTML ="";
-      suggestionsEventListener
+      suggestionsList.style.display ="none";
+      }
+    });
+  }
       
         
       
