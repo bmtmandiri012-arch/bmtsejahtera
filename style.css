@@ -159,7 +159,7 @@ a {
 }
 .suggestions-list {
   top: 100%;
-  position: abssolute;
+  position: absolute;
   list-style: none;
   margin: 0;
   padding: 0;
