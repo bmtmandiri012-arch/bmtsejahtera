@@ -174,6 +174,14 @@ if (value) {
       });
         suggestionsList.appendChild(li)
     });
+  } else {
+    suggestionsList.style.display = "none";
+  } else {
+    suggestionsList.syle.display ="none";
+  document.addListener("click", e => {
+    if (!e.target.closest(".kbms-search-wrapper")) {
+      suggestionsList.innerHTML ="";
+      suggestionsEventListener
       
         
       
