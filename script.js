@@ -116,7 +116,6 @@ const suggestionsList = document.getElementById("suggestions");
 // Daftar produk (bisa tambah sesuka hati)
 const produkData = [
   "Tabungan Reguler",
-  "Deposito Berjangka",
   "Pembiayaan Syariah",
   "Pembukaan Rekening",
   "Mobile Banking"
