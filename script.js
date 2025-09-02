@@ -1,23 +1,16 @@
-// script.js
+// script.js (paste keseluruhan ini, ganti file lama)
 document.addEventListener("DOMContentLoaded", () => {
   // ---------- NAV TOGGLE ----------
   const toggle = document.querySelector(".kbms-nav-toggle");
   const nav = document.querySelector(".kbms-nav");
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
-  }
+  if (toggle && nav) toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
 
   // ---------- SLIDER ----------
   const container = document.querySelector(".kbms-slider");
   const track = document.querySelector(".kbms-slider__wrapper");
-  if (!container || !track) {
-    console.warn("Slider: elemen tidak lengkap.");
-  } else {
+  if (container && track) {
     const slides = track.querySelectorAll(".kbms-slide");
-    if (!slides.length) {
-      console.warn("Slider: tidak ada .kbms-slide.");
-    } else {
-      // Pastikan setiap slide pas 1 layar
+    if (slides.length) {
       slides.forEach(s => {
         s.style.minWidth = "100%";
         s.style.flex = "0 0 100%";
@@ -49,9 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         autoTimer = null;
       };
 
-      // Init
       track.style.willChange = "transform";
-      track.style.backfaceVisibility = "hidden";
       track.querySelectorAll("img").forEach(img => {
         img.setAttribute("draggable", "false");
         img.setAttribute("decoding", "async");
@@ -59,8 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       goTo(0, false);
       startAuto();
 
-      // Pointer events
-      container.style.touchAction = "pan-y"; // biar horizontal drag tidak bentrok dengan scroll
+      container.style.touchAction = "pan-y";
       container.addEventListener("pointerdown", (e) => {
         dragging = true;
         startX = e.clientX;
@@ -73,14 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
       container.addEventListener("pointermove", (e) => {
         if (!dragging) return;
         deltaX = e.clientX - startX;
-        // geser mengikuti jari
         setX(-index * slideW + deltaX, false);
       });
 
       const endDrag = (e) => {
         if (!dragging) return;
         dragging = false;
-        // Threshold adaptif: 8% dari lebar slide (min 30px, max 80px)
         const thresh = Math.max(30, Math.min(80, slideW * 0.08));
         if (Math.abs(deltaX) > thresh) {
           goTo(deltaX < 0 ? index + 1 : index - 1, true);
@@ -96,70 +84,76 @@ document.addEventListener("DOMContentLoaded", () => {
       container.addEventListener("pointercancel", endDrag);
       container.addEventListener("pointerleave", endDrag);
 
-      // Keyboard (opsional)
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") { goTo(index - 1); stopAuto(); startAuto(); }
         if (e.key === "ArrowRight") { goTo(index + 1); stopAuto(); startAuto(); }
       });
 
-      // Resize
       window.addEventListener("resize", () => {
         slideW = container.clientWidth;
         goTo(index, false);
       });
     }
   }
-// ---------- SEARCH SUGGESTIONS ----------
-const searchInput = document.getElementById("q");
-const suggestionsList = document.getElementById("suggestions");
 
-// Daftar produk (bisa tambah sesuka hati)
-const produkData = [
-  "Tabungan Reguler",
-  "Pembiayaan Syariah",
-  "Pembukaan Rekening",
-  "Mobile Banking"
-];
+  // ---------- SEARCH SUGGESTIONS ----------
+  const searchInput = document.getElementById("q");
+  const suggestionsList = document.getElementById("suggestions");
+  const produkData = [
+    "Tabungan Reguler",
+    "Deposito Berjangka",
+    "Pembiayaan Syariah",
+    "Pembukaan Rekening",
+    "Mobile Banking"
+  ];
 
-if (searchInput && suggestionsList) {
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase().trim();
-    suggestionsList.innerHTML = "";
+  if (searchInput && suggestionsList) {
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      suggestionsList.innerHTML = "";
 
-    if (query.length === 0) {
-      suggestionsList.style.display = "none";
-      return;
-    }
+      if (!query) {
+        suggestionsList.style.display = "none";
+        return;
+      }
 
-    const filtered = produkData.filter(item =>
-      item.toLowerCase().includes(query)
-    );
+      const filtered = produkData.filter(item => item.toLowerCase().includes(query));
 
-    if (filtered.length > 0) {
+      if (filtered.length === 0) {
+        suggestionsList.style.display = "none";
+        return;
+      }
+
       filtered.forEach(item => {
         const li = document.createElement("li");
         li.textContent = item;
+        li.tabIndex = 0;
         li.addEventListener("click", () => {
           searchInput.value = item;
+          suggestionsList.innerHTML = "";
           suggestionsList.style.display = "none";
+        });
+        li.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            searchInput.value = item;
+            suggestionsList.innerHTML = "";
+            suggestionsList.style.display = "none";
+          }
         });
         suggestionsList.appendChild(li);
       });
       suggestionsList.style.display = "block";
-    } else {
-      suggestionsList.style.display = "none";
-    }
-  });
+    });
 
-  // Klik luar → tutup suggestion
-  document.addEventListener("click", (e) => {
-    if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
-      suggestionsList.style.display = "none";
-    }
-  });
-}
+    // Klik di luar → tutup suggestion
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".kbms-search") && !e.target.closest("#suggestions")) {
+        suggestionsList.innerHTML = "";
+        suggestionsList.style.display = "none";
+      }
+    });
+  }
 
-      
   // ---------- FOOTER YEAR ----------
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
