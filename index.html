@@ -49,16 +49,14 @@
           <span aria-hidden="true"></span>
         </button>
 
-        <form class="kbms-search" role="search" action="#" method="get">
-          <label class="visually-hidden" for="q">Cari</label>
-          <div class="kbms-search-wrapper" style="position: relative";>
-            <input id="q" name="q" type="search" placeholder="Cari produk, layanan..." autocomplete="off" list="produk-list" />
-            <ul id="suggestion" class="suggestions-list"></ul>
-          </div>
-          <button type="submit">🔍 Cari</button>
+        <form class="kbms-search">
+      <div class="kbms-search-wrapper" style="position: relative; flex:1;">
+        <input id="q" name="q" type="search" placeholder="Cari produk, layanan..." autocomplete="off">
+        <ul id="suggestions" class="suggestions-list"></ul>
+      </div>
+      <button type="submit">🔍</button>
         </form>
       </div>
-
       <nav id="main-nav" class="kbms-nav" aria-label="Navigasi utama">
         <a class="is-active" href="#" aria-current="page">Beranda</a>
         <a href="#produk">Produk</a>
