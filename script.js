@@ -152,7 +152,54 @@ document.addEventListener("DOMContentLoaded", () => {
         suggestionsList.style.display = "none";
       }
     });
-  }
+  }<script src="script.js?v=2" defer></script>
+<script>
+  // kode JS tambahan untuk search ke tabungan.html
+  const produk = [
+    { name: "Tabungan", url: "tabungan.html" },
+    { name: "Deposito", url: "produk-deposito.html" },
+    { name: "Pembiayaan", url: "produk-pembiayaan.html" }
+  ];
+
+  const input = document.getElementById("q");
+  const suggestions = document.getElementById("suggestions");
+
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase();
+    suggestions.innerHTML = "";
+
+    if (query.length > 0) {
+      const matches = produk.filter(item =>
+        item.name.toLowerCase().includes(query)
+      );
+
+      matches.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.name;
+        li.addEventListener("click", () => {
+          window.location.href = item.url;
+        });
+        suggestions.appendChild(li);
+      });
+
+      suggestions.style.display = matches.length ? "block" : "none";
+    } else {
+      suggestions.style.display = "none";
+    }
+  });
+
+  document.querySelector(".kbms-search").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const query = input.value.toLowerCase();
+    const match = produk.find(item => item.name.toLowerCase().includes(query));
+    if (match) {
+      window.location.href = match.url;
+    }
+  });
+</script>
+</body>
+</html>
+
 
   // ---------- FOOTER YEAR ----------
   const yearEl = document.getElementById("year");
