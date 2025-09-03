@@ -152,8 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
         suggestionsList.style.display = "none";
       }
     });
-  }<script src="script.js?v=2" defer></script>
-<script>
+  }
   // kode JS tambahan untuk search ke tabungan.html
   const produk = [
     { name: "Tabungan", url: "tabungan.html" },
