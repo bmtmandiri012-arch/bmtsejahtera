@@ -890,4 +890,181 @@ html, body {
   overflow: hidden;       /* gambar tidak keluar area */
 }
 
+/* ===== Hero Section (judul halaman) ===== */
+.kbms-hero-page {
+  background: linear-gradient(135deg, #004d40, #00796b); /* selaras warna syariah hijau tua */
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  margin-top: 0; /* tidak bentrok dengan header */
+}
+
+.kbms-hero-page h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 0.75rem;
+}
+
+.kbms-hero-page .lead {
+  font-size: 1.125rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ===== Grid produk tabungan ===== */
+.kbms-tabungan {
+  padding: 3rem 1rem;
+  background: #f9fafb; /* abu-abu lembut agar kontras */
+}
+
+.kbms-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.kbms-grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ===== Card produk ===== */
+.kbms-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kbms-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.kbms-product__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.kbms-product__body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kbms-product__desc {
+  color: #444;
+  line-height: 1.6;
+}
+
+.kbms-small {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ===== Detail / accordion ===== */
+.kbms-detail summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #00695c;
+  list-style: none;
+}
+
+.kbms-detail[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+.kbms-detail ul {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== Tombol CTA ===== */
+.kbms-cta {
+  margin-top: auto; /* dorong tombol ke bawah */
+}
+
+.kbms-btn {
+  display: inline-block;
+  background: #00796b;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.25s ease;
+}
+
+.kbms-btn:hover {
+  background: #004d40;
+}
+
+/* ===== Footer ===== */
+.kbms-footer {
+  background: #004d40;
+  color: #fff;
+  padding: 2.5rem 1.5rem;
+  margin-top: 3rem;
+}
+
+.kbms-footer__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  gap: 1rem;
+}
+
+.kbms-footer h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.kbms-footer p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Tambah ruang agar teks tidak mepet sisi */
+.kbms-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ===== Suggestion Box ===== */
+.kbms-search {
+  position: relative;
+}
+
+#suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  z-index: 9999;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+#suggestions li {
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#suggestions li:hover {
+  background: #f0f0f0;
+}
+
 
