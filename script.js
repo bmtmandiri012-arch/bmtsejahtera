@@ -1,11 +1,12 @@
-// script.js (paste keseluruhan ini, ganti file lama)
 document.addEventListener("DOMContentLoaded", () => {
-  // ---------- NAV TOGGLE ----------
+  // NAV TOGGLE
   const toggle = document.querySelector(".kbms-nav-toggle");
   const nav = document.querySelector(".kbms-nav");
-  if (toggle && nav) toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
+  }
 
-  // ---------- SLIDER ----------
+  // SLIDER
   const container = document.querySelector(".kbms-slider");
   const track = document.querySelector(".kbms-slider__wrapper");
   if (container && track) {
@@ -16,10 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         s.style.flex = "0 0 100%";
       });
 
-      let index = 0;
-      let dragging = false;
-      let startX = 0;
-      let deltaX = 0;
+      let index = 0, dragging = false, startX = 0, deltaX = 0;
       let slideW = container.clientWidth;
       let autoTimer = null;
 
@@ -27,12 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transition = animate ? "transform 280ms ease-out" : "none";
         track.style.transform = `translate3d(${x}px,0,0)`;
       };
-
       const goTo = (i, animate = true) => {
         index = (i + slides.length) % slides.length;
         setX(-index * slideW, animate);
       };
-
       const startAuto = () => {
         stopAuto();
         autoTimer = setInterval(() => goTo(index + 1, true), 5000);
@@ -42,11 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         autoTimer = null;
       };
 
-      track.style.willChange = "transform";
-      track.querySelectorAll("img").forEach(img => {
-        img.setAttribute("draggable", "false");
-        img.setAttribute("decoding", "async");
-      });
       goTo(0, false);
       startAuto();
 
@@ -57,16 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
         deltaX = 0;
         stopAuto();
         setX(-index * slideW, false);
-        try { track.setPointerCapture && track.setPointerCapture(e.pointerId); } catch {}
       });
-
       container.addEventListener("pointermove", (e) => {
         if (!dragging) return;
         deltaX = e.clientX - startX;
         setX(-index * slideW + deltaX, false);
       });
-
-      const endDrag = (e) => {
+      const endDrag = () => {
         if (!dragging) return;
         dragging = false;
         const thresh = Math.max(30, Math.min(80, slideW * 0.08));
@@ -77,18 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         deltaX = 0;
         startAuto();
-        try { track.releasePointerCapture && track.releasePointerCapture(e.pointerId); } catch {}
       };
-
       container.addEventListener("pointerup", endDrag);
       container.addEventListener("pointercancel", endDrag);
       container.addEventListener("pointerleave", endDrag);
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft") { goTo(index - 1); stopAuto(); startAuto(); }
-        if (e.key === "ArrowRight") { goTo(index + 1); stopAuto(); startAuto(); }
+        if (e.key === "ArrowLeft") goTo(index - 1, true);
+        if (e.key === "ArrowRight") goTo(index + 1, true);
       });
-
       window.addEventListener("resize", () => {
         slideW = container.clientWidth;
         goTo(index, false);
@@ -96,15 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ---------- SEARCH SUGGESTIONS ----------
+  // SEARCH (gabungan suggestion + redirect)
   const searchInput = document.getElementById("q");
   const suggestionsList = document.getElementById("suggestions");
-  const produkData = [
-    "Tabungan",
-    "Deposito Berjangka",
-    "Pembiayaan Syariah",
-    "Pembukaan Rekening",
-    "Mobile Banking"
+  const produk = [
+    { name: "Tabungan", url: "tabungan.html" },
+    { name: "Deposito", url: "produk-deposito.html" },
+    { name: "Pembiayaan", url: "produk-pembiayaan.html" },
+    { name: "Mobile Banking", url: "#" }
   ];
 
   if (searchInput && suggestionsList) {
@@ -116,88 +100,42 @@ document.addEventListener("DOMContentLoaded", () => {
         suggestionsList.style.display = "none";
         return;
       }
-
-      const filtered = produkData.filter(item => item.toLowerCase().includes(query));
-
-      if (filtered.length === 0) {
+      const matches = produk.filter(p => p.name.toLowerCase().includes(query));
+      if (!matches.length) {
         suggestionsList.style.display = "none";
         return;
       }
-
-      filtered.forEach(item => {
+      matches.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = item;
+        li.textContent = item.name;
         li.tabIndex = 0;
         li.addEventListener("click", () => {
-          searchInput.value = item;
-          suggestionsList.innerHTML = "";
-          suggestionsList.style.display = "none";
+          window.location.href = item.url;
         });
         li.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            searchInput.value = item;
-            suggestionsList.innerHTML = "";
-            suggestionsList.style.display = "none";
-          }
+          if (e.key === "Enter") window.location.href = item.url;
         });
         suggestionsList.appendChild(li);
       });
       suggestionsList.style.display = "block";
     });
 
-    // Klik di luar → tutup suggestion
     document.addEventListener("click", (e) => {
-      if (!e.target.closest(".kbms-search") && !e.target.closest("#suggestions")) {
+      if (!e.target.closest(".kbms-search")) {
         suggestionsList.innerHTML = "";
         suggestionsList.style.display = "none";
       }
     });
+
+    document.querySelector(".kbms-search").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const query = searchInput.value.toLowerCase();
+      const match = produk.find(p => p.name.toLowerCase().includes(query));
+      if (match) window.location.href = match.url;
+    });
   }
-  // kode JS tambahan untuk search ke tabungan.html
-  const produk = [
-    { name: "Tabungan", url: "tabungan.html" },
-    { name: "Deposito", url: "produk-deposito.html" },
-    { name: "Pembiayaan", url: "produk-pembiayaan.html" }
-  ];
 
-  const input = document.getElementById("q");
-  const suggestions = document.getElementById("suggestions");
-
-  input.addEventListener("input", () => {
-    const query = input.value.toLowerCase();
-    suggestions.innerHTML = "";
-
-    if (query.length > 0) {
-      const matches = produk.filter(item =>
-        item.name.toLowerCase().includes(query)
-      );
-
-      matches.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item.name;
-        li.addEventListener("click", () => {
-          window.location.href = item.url;
-        });
-        suggestions.appendChild(li);
-      });
-
-      suggestions.style.display = matches.length ? "block" : "none";
-    } else {
-      suggestions.style.display = "none";
-    }
-  });
-
-  document.querySelector(".kbms-search").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const query = input.value.toLowerCase();
-    const match = produk.find(item => item.name.toLowerCase().includes(query));
-    if (match) {
-      window.location.href = match.url;
-    }
-  });
-
-
-  // ---------- FOOTER YEAR ----------
+  // FOOTER YEAR
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
