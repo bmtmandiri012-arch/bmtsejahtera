@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("q");
   const suggestionsList = document.getElementById("suggestions");
   const produkData = [
-    "Tabungan Reguler",
+    "Tabungan",
     "Deposito Berjangka",
     "Pembiayaan Syariah",
     "Pembukaan Rekening",
