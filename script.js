@@ -195,9 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = match.url;
     }
   });
-</script>
-</body>
-</html>
 
 
   // ---------- FOOTER YEAR ----------
