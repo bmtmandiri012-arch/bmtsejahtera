@@ -105,15 +105,25 @@
       <li><strong>Penarikan:</strong> Fleksibel</li>
     </ul>
 
-    <!-- Tombol aksi -->
-    <div class="tabungan-actions">
-  <button type="button" class="tabungan-btn">Buka Rekening</button>
-  <button type="button" class="tabungan-btn--ghost" onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = !this.closest('.tabungan-card').querySelector('.tabungan-details').open">Selengkapnya</button>
-</div>
-
     <!-- Detail tambahan (tanpa summary) -->
     <details class="tabungan-details">
-      <div class="tabungan-more">
+      <div class="persyaratan-sing-berkah hidden">
+        <div class="tabungan-more">
+          <h4>Persyaratan Buka Rekening</h4>
+          <ul>
+            <li>
+              Warga Negara Indonesia / penduduk(KTP)</li>
+            <li>Fotokopi KTP dan Kartu Keluarga(KK)</li>
+            <li></li>Formulir pendaftaran terisi</li>
+            <li>Setoran awal RP50.000</li>
+            <li>Usia minimal 17 tahun</li>
+          </ul>
+        </div>
+      </div>
+      <!-- informasi tambahan -->
+      <details class="tabungan-details">
+      <div class="persyaratan-sing-berkah hidden">
+        <div class="tabungan-more">
         <h4>Manfaat</h4>
         <ul>
           <li>Mendukung kebutuhan harian & simpanan darurat</li>
@@ -131,7 +141,14 @@
         <h4>Cara Buka Rekening</h4>
         <p>Datang ke kantor cabang terdekat atau isi formulir online pada halaman 'Buka Rekening'.</p>
       </div>
+      
     </details>
+    <!-- Tombol aksi -->
+    <div class="tabungan-actions">
+  <button type="button" class="tabungan-btn"onclick="this.closest=('persyaratan-sing-berkah').querySelector('.tabungan-card'))">Cara Buka Rekening</button>
+  <button type="button" class="tabungan-btn--ghost" onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = !this.closest('.tabungan-card').querySelector('.tabungan-details').open">Selengkapnya</button>
+</div>
+    
   </div>
 </article>
 
