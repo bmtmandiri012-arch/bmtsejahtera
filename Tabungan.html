@@ -107,12 +107,9 @@
 
     <!-- Tombol aksi -->
     <div class="tabungan-actions">
-      <button type="button" class="tabungan-btn"
-        onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = 
-                 !this.closest('.tabungan-card').querySelector('.tabungan-details').open">
-        Buka Rekening
-      </button>
-    </div>
+  <button type="button" class="tabungan-btn">Buka Rekening</button>
+  <button type="button" class="tabungan-btn--ghost" onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = !this.closest('.tabungan-card').querySelector('.tabungan-details').open">Selengkapnya</button>
+</div>
 
     <!-- Detail tambahan (tanpa summary) -->
     <details class="tabungan-details">
