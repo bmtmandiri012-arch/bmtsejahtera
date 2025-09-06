@@ -86,51 +86,57 @@
         <div class="tabungan-list" role="list">
 
           <!-- Tabungan Sing Berkah (Reguler) -->
-          <article class="tabungan-card" role="listitem" aria-labelledby="t-sing-berkah">
-            <div class="tabungan-media">
-              <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi tabungan reguler" loading="lazy" class="tabungan-img">
-            </div>
-            <div class="tabungan-body">
-              <h3 id="t-sing-berkah" class="tabungan-title">Tabungan Sing Berkah (Reguler)</h3>
-              <p class="tabungan-lead">Tabungan harian fleksibel untuk kebutuhan keluarga dan transaksi sehari-hari — aman, mudah, dan tanpa proses rumit.</p>
+<article class="tabungan-card" role="listitem" aria-labelledby="t-sing-berkah">
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi tabungan reguler" loading="lazy" class="tabungan-img">
+  </div>
 
-              <ul class="tabungan-highlights">
-                <li><strong>Biaya Anggota:</strong> Rp50.000</li>
-                <li><strong>Setoran Awal:</strong> Rp50.000 (disarankan)</li>
-                <li><strong>Penarikan:</strong> Fleksibel</li>
-              </ul>
+  <div class="tabungan-body">
+    <h3 id="t-sing-berkah" class="tabungan-title">Tabungan Sing Berkah (Reguler)</h3>
+    <p class="tabungan-lead">
+      Tabungan harian fleksibel untuk kebutuhan keluarga dan transaksi sehari-hari — 
+      aman, mudah, dan tanpa proses rumit.
+    </p>
 
-              <details class="tabungan-details">
-                <summary aria-expanded="false">Selengkapnya tentang Tabungan Sing Berkah</summary>
-                <div class="tabungan-more">
-                  <h4>Manfaat</h4>
-                  <ul>
-                    <li>Mendukung kebutuhan harian & simpanan darurat</li>
-                    <li>Proses syariah yang transparan</li>
-                    <li>Akses layanan digital & cabang</li>
-                  </ul>
+    <ul class="tabungan-highlights">
+      <li><strong>Biaya Anggota:</strong> Rp50.000</li>
+      <li><strong>Setoran Awal:</strong> Rp50.000 (disarankan)</li>
+      <li><strong>Penarikan:</strong> Fleksibel</li>
+    </ul>
 
-                  <h4>Persyaratan</h4>
-                  <ul>
-                    <li>Warga Negara Indonesia / penduduk (KTP)</li>
-                    <li>Formulir pendaftaran terisi</li>
-                    <li>Setoran awal sesuai paket</li>
-                  </ul>
+    <!-- Tombol aksi -->
+    <div class="tabungan-actions">
+      <button type="button" class="tabungan-btn"
+        onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = 
+                 !this.closest('.tabungan-card').querySelector('.tabungan-details').open">
+        Buka Rekening
+      </button>
+    </div>
 
-                  <h4>Cara Buka Rekening</h4>
-                  <p>Datang ke kantor cabang terdekat atau isi formulir online pada halaman 'Buka Rekening'.</p>
-                </div>
-              </details>
+    <!-- Detail tambahan (tanpa summary) -->
+    <details class="tabungan-details">
+      <div class="tabungan-more">
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Mendukung kebutuhan harian & simpanan darurat</li>
+          <li>Proses syariah yang transparan</li>
+          <li>Akses layanan digital & cabang</li>
+        </ul>
 
-              <div class="tabungan-actions">
-                <!-- tombol membuka pendaftaran bisa diarahkan ke formulir nanti; di sini bersifat informatif -->
-                <button type="button" class="tabungan-btn" aria-controls="t-sing-berkah-more" onclick="document.querySelector('#t-sing-berkah details, #t-sing-berkah details')?.focus ? null : null">Buka Rekening</button>
-                <button type="button" class="tabungan-btn--ghost" onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = !this.closest('.tabungan-card').querySelector('.tabungan-details').open">
-                  Selengkapnya
-                </button>
-              </div>
-            </div>
-          </article>
+        <h4>Persyaratan</h4>
+        <ul>
+          <li>Warga Negara Indonesia / penduduk (KTP)</li>
+          <li>Formulir pendaftaran terisi</li>
+          <li>Setoran awal sesuai paket</li>
+        </ul>
+
+        <h4>Cara Buka Rekening</h4>
+        <p>Datang ke kantor cabang terdekat atau isi formulir online pada halaman 'Buka Rekening'.</p>
+      </div>
+    </details>
+  </div>
+</article>
 
           <!-- Tabungan Paket Lebaran -->
           <article class="tabungan-card" role="listitem" aria-labelledby="t-lebaran">
