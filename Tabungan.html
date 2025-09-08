@@ -106,7 +106,11 @@
                 </div>
               </details>
               <div class="tabungan-actions">
-                <button type="button" class="tabungan-btn" onclick="document.getElementById('persyaratan-sing-berkah').style.display = 'block'; this.style.display = 'none';">Cara Buka Rekening</button>
+                <button type="button" class="tabungan-btn" onclick="const box = document.getElementById('persyaratan-sing-berkah'); 
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  ">
+                  Cara Buka Rekening
+                </button>
                 <button type="button" class="tabungan-btn--ghost" onclick="document.getElementById('selengkapnya-sing-berkah').open = !document.getElementById('selengkapnya-sing-berkah').open;">Selengkapnya</button>
               </div>
             </div>
