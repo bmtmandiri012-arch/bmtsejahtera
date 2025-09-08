@@ -134,16 +134,28 @@ document.addEventListener("DOMContentLoaded", () => {
       if (match) window.location.href = match.url;
     });
   }
-// TOGGLE DETAIL (Selengkapnya)
-const toggleBtn = document.getElementById("toggle-selengkapnya");
-const detailEl = document.getElementById("selengkapnya-sing-berkah");
-
-if (toggleBtn && detailEl) {
-  toggleBtn.addEventListener("click", () => {
-    detailEl.open = !detailEl.open; // buka/tutup detail
-    toggleBtn.textContent = detailEl.open ? "Tutup" : "Selengkapnya";
+document.addEventListener("DOMContentLoaded", () => {
+  // tombol buka/tutup detail
+  document.querySelectorAll(".tabungan-btn--ghost").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const details = btn.closest(".tabungan-card").querySelector(".tabungan-details");
+      if (details) {
+        details.open = !details.open; // toggle
+      }
+    });
   });
-}
+
+  // tombol buka/tutup persyaratan
+  document.querySelectorAll(".tabungan-btn[data-toggle='persyaratan']").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const box = btn.closest(".tabungan-card").querySelector(".tabungan-persyaratan");
+      if (box) {
+        box.style.display = box.style.display === "block" ? "none" : "block";
+      }
+    });
+  });
+});
+
 
   // FOOTER YEAR
   const yearEl = document.getElementById("year");
