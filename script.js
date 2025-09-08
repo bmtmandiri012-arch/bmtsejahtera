@@ -134,6 +134,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (match) window.location.href = match.url;
     });
   }
+// TOGGLE DETAIL (Selengkapnya)
+const toggleBtn = document.getElementById("toggle-selengkapnya");
+const detailEl = document.getElementById("selengkapnya-sing-berkah");
+
+if (toggleBtn && detailEl) {
+  toggleBtn.addEventListener("click", () => {
+    detailEl.open = !detailEl.open; // buka/tutup detail
+    toggleBtn.textContent = detailEl.open ? "Tutup" : "Selengkapnya";
+  });
+}
 
   // FOOTER YEAR
   const yearEl = document.getElementById("year");
