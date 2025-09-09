@@ -239,45 +239,54 @@
     </div>
   </div>
 </article>
-
           <article class="tabungan-card" role="listitem" aria-labelledby="t-qurban">
-            <div class="tabungan-media">
-              <img src="https://images.unsplash.com/photo-1603642633278-9a2b4b3c7f0d?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi tabungan qurban" loading="lazy" class="tabungan-img">
-            </div>
-            <div class="tabungan-body">
-              <h3 id="t-qurban" class="tabungan-title">Tabungan Qurban</h3>
-              <p class="tabungan-lead">Targetkan hewan qurban dengan setoran rutin — pencairan & distribusi terorganisir saat Idul Adha.</p>
-              <ul class="tabungan-highlights">
-                <li><strong>Target:</strong> Sesuaikan dengan paket hewan</li>
-                <li><strong>Distribusi:</strong> Dikelola oleh BMT saat Idul Adha</li>
-              </ul>
-              <div id="persyaratan-qurban" style="display: none;">
-                <h4>Cara Membuka Tabungan Qurban</h4>
-                <ul>
-                  <li>Menjadi anggota KSPPS BMS</li>
-                  <li>Fotokopi KTP</li>
-                  <li>Mengisi formulir pendaftaran tabungan qurban</li>
-                  <li>Setoran awal sesuai paket hewan(misalnya kambing atau sapi</li>
-                </ul>
-              </div>
-              
-              <details class="tabungan-details">
-                <summary>Selengkapnya tentang Tabungan Qurban</summary>
-                <div class="tabungan-more">
-                  <h4>Manfaat</h4>
-                  <ul>
-                    <li>Praktis untuk persiapan dana qurban</li>
-                    <li>Menjamin proses distribusi hrwan qurban transparan & tepat sasaran</li>
-                    <li>Fleksibilitas pilihan paket hewan qurban</li>
-                  </ul>
-                  <h4>Fitur Tambahan</h4>
-                  <ul>
-                    <li>Pilihan setoran bulanan sesuai target hewan</li>
-                    <li>Bantuan penglolaan dan pendistribusian oleh BMT</li>
-                  </ul>
-                </div>
-              </details>
-               <div class="tabungan-actions">
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1603642633278-9a2b4b3c7f0d?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi tabungan qurban" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
+  <div class="tabungan-body">
+    <h3 id="t-qurban" class="tabungan-title">Tabungan Qurban</h3>
+    <p class="tabungan-lead">Targetkan hewan qurban dengan setoran rutin — pencairan & distribusi terorganisir saat Idul Adha.</p>
+
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Target:</strong> Sesuaikan dengan paket hewan</li>
+      <li><strong>Distribusi:</strong> Dikelola oleh BMT saat Idul Adha</li>
+    </ul>
+
+    <!-- Persyaratan (disembunyikan default) -->
+    <div id="persyaratan-qurban" style="display: none;">
+      <h4>Cara Membuka Tabungan Qurban</h4>
+      <ul>
+        <li>Menjadi anggota KSPPS BMS</li>
+        <li>Fotokopi KTP</li>
+        <li>Mengisi formulir pendaftaran tabungan qurban</li>
+        <li>Setoran awal sesuai paket hewan (misalnya kambing atau sapi)</li>
+      </ul>
+    </div>
+
+    <!-- Detail tambahan -->
+    <details class="tabungan-details" id="selengkapnya-qurban">
+      <summary style="display:none;">Selengkapnya tentang Tabungan Qurban</summary>
+      <div class="tabungan-more">
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Membantu persiapan dana qurban secara terencana</li>
+          <li>Menjamin distribusi hewan qurban transparan & tepat sasaran</li>
+          <li>Fleksibilitas pilihan paket hewan (kambing, sapi, dll)</li>
+        </ul>
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Pilihan setoran bulanan sesuai target hewan</li>
+          <li>Bantuan pengelolaan dan pendistribusian oleh BMT</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Tombol -->
+    <div class="tabungan-actions">
       <button type="button" class="tabungan-btn"
         onclick="const box = document.getElementById('persyaratan-qurban');
                  box.style.display = box.style.display === 'block' ? 'none' : 'block';">
@@ -291,7 +300,7 @@
     </div>
   </div>
 </article>
-    </section>
+        </section>
   </main>
   <footer class="kbms-footer" role="contentinfo">
     <div class="kbms-container kbms-footer__inner">
