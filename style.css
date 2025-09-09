@@ -53,8 +53,10 @@ a {
 .kbms-container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
+  padding-left: clamp(16px, 5vw, 32px);
+  padding-right: clamp(16px, 5vw, 32px);
 }
+
 .kbms-card {
   background: var(--kbms-white);
   border-radius: var(--kbms-radius);
