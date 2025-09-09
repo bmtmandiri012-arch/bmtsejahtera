@@ -116,50 +116,68 @@
             </div>
           </article>
           <article class="tabungan-card" role="listitem" aria-labelledby="t-lebaran">
-            <div class="tabungan-media">
-              <img src="https://images.unsplash.com/photo-1600180758890-1f9e86f7a1ee?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi tabungan lebaran" loading="lazy" class="tabungan-img">
-            </div>
-            <div class="tabungan-body">
-              <h3 id="t-lebaran" class="tabungan-title">Tabungan Paket Lebaran</h3>
-              <p class="tabungan-lead">Rencanakan dana Idul Fitri dengan setoran berkala — tersedia paket harian/bulanan yang membantu mencapai target.</p>
-              <ul class="tabungan-highlights">
-                <li><strong>Paket:</strong> Beragam (ringan → agresif)</li>
-                <li><strong>Pencairan:</strong> Dipercepat menjelang Idul Fitri</li>
-              </ul>
-              <div id="persyaaratan-lebaran" style"display: none;">
-                <h4>Cara Ikut Paket Lebaran</h4>
-                <ul>
-                  <li>Menjadi anggota KSPPS BMS</li>
-                  <li>Fotokopi KTP / identitas</li>
-                  <li>Mengisi formulir pendaftaran paket Lebaran</li>
-                  <li>Memilih tenor (harian / bulanan) sesuai kebutuhan</li>
-                </ul>
-              </div>
-              
-              <details class="tabungan-details">
-                <summary style="display:none;">Selengkapnya tentang Tabungan Paket Lebaran</summary>
-                <div class="tabungan-more">
-                  <h4>Manfaat</h4>
-                  <ul>
-                    <li>Target terukur untuk biaya lebaran</li>
-                    <li>Rencana setoran otomatis (opsional)</li>
-                    <li>Pilihan tenor yang fleksibel</li>
-                  </ul>
-                  <h4>Fitur Tambahan</h4>
-                  <ul>
-                    <li>Tabungan amam berbasis syariah</li>
-                    <li>Pencairan otomatis menjelang Idul Fitri</li>
-                    <li>Notifikasi pengingat setoran</li>
-                  </ul>
-                </div>
-              </details>
-              
-              <div class="tabungan-actions">
-                <button type="button" class="tabungan-btn">Pilih Paket</button>
-                <button type="button" class="tabungan-btn--ghost" onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = !this.closest('.tabungan-card').querySelector('.tabungan-details').open">Selengkapnya</button>
-              </div>
-            </div>
-          </article>
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1600180758890-1f9e86f7a1ee?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi tabungan lebaran" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
+  <div class="tabungan-body">
+    <h3 id="t-lebaran" class="tabungan-title">Tabungan Paket Lebaran</h3>
+    <p class="tabungan-lead">Rencanakan dana Idul Fitri dengan setoran berkala — tersedia paket harian/bulanan yang membantu mencapai target.</p>
+
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Paket:</strong> Beragam (ringan → agresif)</li>
+      <li><strong>Pencairan:</strong> Dipercepat menjelang Idul Fitri</li>
+    </ul>
+
+    <!-- Persyaratan (disembunyikan default) -->
+    <div id="persyaratan-lebaran" style="display: none;">
+      <h4>Cara Ikut Paket Lebaran</h4>
+      <ul>
+        <li>Menjadi anggota KSPPS BMS</li>
+        <li>Fotokopi KTP / identitas</li>
+        <li>Mengisi formulir pendaftaran paket Lebaran</li>
+        <li>Memilih tenor (harian / bulanan) sesuai kebutuhan</li>
+      </ul>
+    </div>
+
+    <!-- Detail tambahan -->
+    <details class="tabungan-details" id="selengkapnya-lebaran">
+      <summary style="display:none;">Selengkapnya tentang Tabungan Paket Lebaran</summary>
+      <div class="tabungan-more">
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Target terukur untuk biaya lebaran</li>
+          <li>Rencana setoran otomatis (opsional)</li>
+          <li>Pilihan tenor yang fleksibel</li>
+        </ul>
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Tabungan aman berbasis syariah</li>
+          <li>Pencairan otomatis menjelang Idul Fitri</li>
+          <li>Notifikasi pengingat setoran</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Tombol -->
+    <div class="tabungan-actions">
+      <button type="button" class="tabungan-btn" 
+        onclick="const box = document.getElementById('persyaratan-lebaran');
+                 box.style.display = box.style.display === 'block' ? 'none' : 'block';">
+        Pilih Paket
+      </button>
+      <button type="button" class="tabungan-btn--ghost" 
+        onclick="document.getElementById('selengkapnya-lebaran').open = 
+                 !document.getElementById('selengkapnya-lebaran').open;">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+</article>
+
           <article class="tabungan-card" role="listitem" aria-labelledby="t-pendidikan">
             <div class="tabungan-media">
               <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi tabungan pendidikan" loading="lazy" class="tabungan-img">
