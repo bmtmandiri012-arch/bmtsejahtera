@@ -246,6 +246,13 @@
          loading="lazy" 
          class="tabungan-img">
   </div>
+ <article class="tabungan-card" role="listitem" aria-labelledby="t-qurban">
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1603642633278-9a2b4b3c7f0d?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi tabungan qurban" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
   <div class="tabungan-body">
     <h3 id="t-qurban" class="tabungan-title">Tabungan Qurban</h3>
     <p class="tabungan-lead">Targetkan hewan qurban dengan setoran rutin — pencairan & distribusi terorganisir saat Idul Adha.</p>
@@ -293,13 +300,15 @@
         Rencanakan Qurban
       </button>
       <button type="button" class="tabungan-btn--ghost"
-        onclick="document.getElementById('selengkapnya-qurban').open = 
-                 !document.getElementById('selengkapnya-qurban').open;">
+        onclick="const det = document.getElementById('selengkapnya-qurban');
+                 det.open = !det.open;
+                 this.textContent = det.open ? 'Tutup' : 'Selengkapnya';">
         Selengkapnya
       </button>
     </div>
   </div>
 </article>
+
         </section>
   </main>
   <footer class="kbms-footer" role="contentinfo">
