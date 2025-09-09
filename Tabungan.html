@@ -251,31 +251,46 @@
                 <li><strong>Target:</strong> Sesuaikan dengan paket hewan</li>
                 <li><strong>Distribusi:</strong> Dikelola oleh BMT saat Idul Adha</li>
               </ul>
+              <div id="persyaratan-qurban" style="display: none;">
+                <h4>Cara Membuka Tabungan Qurban</h4>
+                <ul>
+                  <li>Menjadi anggota KSPPS BMS</li>
+                  <li>Fotokopi KTP</li>
+                  <li>Mengisi formulir pendaftaran tabungan qurban</li>
+                  <li>Setoran awal sesuai paket hewan(misalnya kambing atau sapi</li>
+                </ul>
+              </div>
+              
               <details class="tabungan-details">
                 <summary>Selengkapnya tentang Tabungan Qurban</summary>
                 <div class="tabungan-more">
                   <h4>Manfaat</h4>
                   <ul>
-                    <li>Praktis untuk persiapan qurban</li>
-                    <li>Proses distribusi transparan</li>
+                    <li>Praktis untuk persiapan dana qurban</li>
+                    <li>Menjamin proses distribusi hrwan qurban transparan & tepat sasaran</li>
+                    <li>Fleksibilitas pilihan paket hewan qurban</li>
                   </ul>
-                  <h4>Persyaratan</h4>
+                  <h4>Fitur Tambahan</h4>
                   <ul>
-                    <li>KTP</li>
-                    <li>Pendaftaran paket qurban</li>
+                    <li>Pilihan setoran bulanan sesuai target hewan</li>
+                    <li>Bantuan penglolaan dan pendistribusian oleh BMT</li>
                   </ul>
-                  <h4>Cara Ikut</h4>
-                  <p>Pilih paket hewan & tentukan jadwal setoran; kami bantu pemilahan & distribusi tepat waktu.</p>
                 </div>
               </details>
-              <div class="tabungan-actions">
-                <button type="button" class="tabungan-btn">Rencanakan Qurban</button>
-                <button type="button" class="tabungan-btn--ghost" onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = !this.closest('.tabungan-card').querySelector('.tabungan-details').open">Selengkapnya</button>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
+               <div class="tabungan-actions">
+      <button type="button" class="tabungan-btn"
+        onclick="const box = document.getElementById('persyaratan-qurban');
+                 box.style.display = box.style.display === 'block' ? 'none' : 'block';">
+        Rencanakan Qurban
+      </button>
+      <button type="button" class="tabungan-btn--ghost"
+        onclick="document.getElementById('selengkapnya-qurban').open = 
+                 !document.getElementById('selengkapnya-qurban').open;">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+</article>
     </section>
   </main>
   <footer class="kbms-footer" role="contentinfo">
