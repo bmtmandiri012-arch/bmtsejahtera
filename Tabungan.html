@@ -179,39 +179,67 @@
 </article>
 
           <article class="tabungan-card" role="listitem" aria-labelledby="t-pendidikan">
-            <div class="tabungan-media">
-              <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi tabungan pendidikan" loading="lazy" class="tabungan-img">
-            </div>
-            <div class="tabungan-body">
-              <h3 id="t-pendidikan" class="tabungan-title">Tabungan Pendidikan</h3>
-              <p class="tabungan-lead">Mempersiapkan biaya pendidikan anak secara terencana — aman & sesuai prinsip syariah.</p>
-              <ul class="tabungan-highlights">
-                <li><strong>Rekomendasi setoran:</strong> Mulai Rp100.000 / bulan</li>
-                <li><strong>Fleksibilitas:</strong> Jangka & jumlah disesuaikan</li>
-              </ul>
-              <details class="tabungan-details">
-                <summary>Selengkapnya tentang Tabungan Pendidikan</summary>
-                <div class="tabungan-more">
-                  <h4>Manfaat</h4>
-                  <ul>
-                    <li>Rencana terarah untuk kebutuhan sekolah / kuliah</li>
-                    <li>Catatan perkembangan & saran paket</li>
-                  </ul>
-                  <h4>Persyaratan</h4>
-                  <ul>
-                    <li>KTP wali</li>
-                    <li>Formulir pendaftaran</li>
-                  </ul>
-                  <h4>Cara Mulai</h4>
-                  <p>Hubungi petugas di cabang untuk rekomendasi paket sesuai usia anak dan target biaya.</p>
-                </div>
-              </details>
-              <div class="tabungan-actions">
-                <button type="button" class="tabungan-btn">Mulai Menabung</button>
-                <button type="button" class="tabungan-btn--ghost" onclick="this.closest('.tabungan-card').querySelector('.tabungan-details').open = !this.closest('.tabungan-card').querySelector('.tabungan-details').open">Selengkapnya</button>
-              </div>
-            </div>
-          </article>
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi tabungan pendidikan" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
+  <div class="tabungan-body">
+    <h3 id="t-pendidikan" class="tabungan-title">Tabungan Pendidikan</h3>
+    <p class="tabungan-lead">Mempersiapkan biaya pendidikan anak secara terencana — aman & sesuai prinsip syariah.</p>
+
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Rekomendasi setoran:</strong> Mulai Rp100.000 / bulan</li>
+      <li><strong>Fleksibilitas:</strong> Jangka & jumlah disesuaikan</li>
+    </ul>
+
+    <!-- Persyaratan (disembunyikan default) -->
+    <div id="persyaratan-pendidikan" style="display: none;">
+      <h4>Cara Membuka Tabungan Pendidikan</h4>
+      <ul>
+        <li>Menjadi anggota KSPPS BMS</li>
+        <li>Fotokopi KTP wali & Kartu Keluarga</li>
+        <li>Mengisi formulir pendaftaran tabungan pendidikan</li>
+        <li>Setoran awal minimal Rp100.000</li>
+      </ul>
+    </div>
+
+    <!-- Detail tambahan -->
+    <details class="tabungan-details" id="selengkapnya-pendidikan">
+      <summary style="display:none;">Selengkapnya tentang Tabungan Pendidikan</summary>
+      <div class="tabungan-more">
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Rencana tabungan terarah untuk kebutuhan sekolah atau kuliah</li>
+          <li>Catatan perkembangan & saran paket sesuai target biaya</li>
+          <li>Fleksibilitas setoran (harian / mingguan / bulanan)</li>
+        </ul>
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Laporan perkembangan tabungan berkala</li>
+          <li>Konsultasi keuangan pendidikan dengan petugas</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Tombol -->
+    <div class="tabungan-actions">
+      <button type="button" class="tabungan-btn"
+        onclick="const box = document.getElementById('persyaratan-pendidikan');
+                 box.style.display = box.style.display === 'block' ? 'none' : 'block';">
+        Mulai Menabung
+      </button>
+      <button type="button" class="tabungan-btn--ghost"
+        onclick="document.getElementById('selengkapnya-pendidikan').open = 
+                 !document.getElementById('selengkapnya-pendidikan').open;">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+</article>
+
           <article class="tabungan-card" role="listitem" aria-labelledby="t-qurban">
             <div class="tabungan-media">
               <img src="https://images.unsplash.com/photo-1603642633278-9a2b4b3c7f0d?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi tabungan qurban" loading="lazy" class="tabungan-img">
