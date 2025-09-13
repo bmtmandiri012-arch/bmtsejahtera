@@ -1049,22 +1049,24 @@ img {
 }
 
 /* Mobile (<= 720px) */
+/* Mobile (<= 720px) */
 @media (max-width: 720px) {
   .kbms-container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
-  
+
   .kbms-brand {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: row;   /* ✅ horizontal */
+    align-items: center;   /* ✅ sejajar tengah */
+    gap: 8px;
     text-decoration: none;
     color: inherit;
   }
 
   .kbms-brand__logo {
-    height: 50px;
+    height: 45px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -1079,9 +1081,10 @@ img {
   }
 
   .kbms-brand__tagline {
-    margin-left: auto;
+    display: block;
+    white-space: normal;
     font-size: 12px;
-    opacity: 0.9;
+    /* opacity dihapus biar stabil */
   }
 
   .kbms-search {
@@ -1195,7 +1198,7 @@ img {
   }
   
   .features-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .announcement-cards {
