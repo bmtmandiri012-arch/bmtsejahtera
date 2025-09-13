@@ -137,7 +137,7 @@ img {
 .kbms-brand {
   flex-direction: row;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   text-decoration: none;
   color: inherit;
@@ -1058,7 +1058,7 @@ img {
   .kbms-brand {
     display: flex;
     flex-direction: row;   /* ✅ horizontal */
-    align-items: center;   /* ✅ sejajar tengah */
+    align-items: flex-start;   /* ✅ sejajar tengah */
     gap: 8px;
     text-decoration: none;
     color: inherit;
