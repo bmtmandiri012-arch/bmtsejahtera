@@ -135,9 +135,10 @@ img {
 }
 
 .kbms-brand {
+  flex-direction: row;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   color: inherit;
 }
@@ -160,7 +161,6 @@ img {
 .kbms-brand__tagline {
   margin-left: auto;
   font-size: 12px;
-  opacity: 0.9;
 }
 
 .kbms-search {
@@ -1048,8 +1048,7 @@ img {
   }
 }
 
-/* Mobile (<= 720px) */
-/* Mobile (<= 720px) */
+/* Mobile (<= 720px) *//
 @media (max-width: 720px) {
   .kbms-container {
     padding-left: 10px !important;
