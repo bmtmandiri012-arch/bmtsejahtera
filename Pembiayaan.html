@@ -161,67 +161,68 @@
 </article>
 
 
-                    <!-- 2. Al-Mudharabah -->
-                    <article class="tabungan-card" role="listitem" aria-labelledby="mudharabah-title">
-                        <div class="tabungan-media">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi pembiayaan Mudharabah" loading="lazy" class="tabungan-img">
-                        </div>
-                        <div class="tabungan-body">
-                            <h3 id="mudharabah-title" class="tabungan-title">Al-Mudharabah</h3>
-                            <p class="tabungan-lead">Kerja sama usaha: modal dari koperasi, pengelolaan oleh anggota. Bagi hasil sesuai nisbah kesepakatan.</p>
+<section class="tabungan-section" id="murabahah">
+  <div class="kbms-container">
+    <h2 id="tabungan-title">Al-Murabahah</h2>
+    <p class="tabungan-lead">
+      Pembiayaan dengan akad jual beli, di mana margin disepakati di awal.
+    </p>
 
-                            <!-- Highlights -->
-                            <ul class="tabungan-highlights">
-                                <li><strong>Kategori:</strong> Kerjasama usaha</li>
-                                <li><strong>Skema:</strong> Bagi hasil nisbah</li>
-                                
-                            </ul>
+    <div class="tabungan-list">
+      <!-- Card Murabahah -->
+      <div class="tabungan-card">
+        <div class="tabungan-media">
+          <img src="assets/img/murabahah.jpg" alt="Al-Murabahah" class="tabungan-img">
+        </div>
+        <div class="tabungan-body">
+          <h3 class="tabungan-title">Pembiayaan Al-Murabahah</h3>
+          <ul class="tabungan-highlights">
+            <li>Akad Jual Beli dengan margin tetap</li>
+            <li>Untuk kebutuhan konsumtif maupun produktif</li>
+          </ul>
 
-                            <div id="persyaratan-mudharabah" style="display: none;">
-                                <h4>Cara Pengajuan Pembiayaan</h4>
-                                <ul>
-                                    <li>Proposal usaha sederhana</li>
-                                    <li>Fotokopi KTP & Kartu Keluarga (KK)</li>
-                                    <li>Surat keterangan usaha</li>
-                                    <li>Isi formulir pengajuan mudharabah</li>
-                                </ul>
-                            </div>
+          <!-- Persyaratan -->
+          <div class="tabungan-details" id="req-murabahah" style="display:none;">
+            <div class="tabungan-more">
+              <h4>Persyaratan</h4>
+              <ul>
+                <li>Fotokopi KTP</li>
+                <li>Fotokopi KK</li>
+                <li>Slip gaji / keterangan penghasilan</li>
+              </ul>
+            </div>
+          </div>
 
-                            <details class="tabungan-details" id="selengkapnya-mudharabah">
-                                <summary style="display: none;">Selengkapnya tentang Al-Mudharabah</summary>
-                                <div class="tabungan-more">
-                                    <h4>Pengertian Pembiayaan</h4>
-                                    <p>Al-Mudharabah adalah akad kerja sama usaha antara pemilik modal (shahibul maal) dengan pengelola (mudharib).</p>
-                                    <h4>Manfaat</h4>
-                                    <ul>
-                                        <li>Dukungan modal syariah</li>
-                                        <li>Skema bagi hasil transparan</li>
-                                        <li>Mendorong usaha produktif</li>
-                                        <li>Proses syariah yang adil</li>
-                                    </ul>
-                                    <h4>Fitur Tambahan</h4>
-                                    <ul>
-                                        <li>Pendampingan usaha oleh petugas</li>
-                                        <li>Evaluasi berkala terhadap usaha</li>
-                                        <li>Pembagian hasil sesuai kesepakatan</li>
-                                    </ul>
-                                </div>
-                            </details>
+          <!-- Selengkapnya -->
+          <details class="tabungan-details" id="details-murabahah">
+            <summary>Informasi Tambahan</summary>
+            <div class="tabungan-more">
+              <h4>Keunggulan</h4>
+              <p>Proses cepat, margin kompetitif, sesuai syariah.</p>
+            </div>
+          </details>
 
-                            <div class="tabungan-actions">
-                                <button type="button" class="tabungan-btn" onclick="const box = document.getElementById('persyaratan-mudharabah'); 
-                                    box.style.display = box.style.display === 'block' ? 'none' : 'block';">
-                                    Cara Pengajuan
-                                </button>
-                                <button type="button" class="tabungan-btn--ghost"
-                                    onclick="const det = document.getElementById('selengkapnya-mudharabah');
-                                             det.open = !det.open;
-                                             this.textContent = det.open ? 'Tutup' : 'Selengkapnya';">
-                                    Selengkapnya
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+          <!-- Aksi -->
+          <div class="tabungan-actions">
+            <button 
+              class="tabungan-btn" 
+              data-req-target="req-murabahah"
+              aria-expanded="false">
+              Cara Pengajuan
+            </button>
+            <button 
+              class="tabungan-btn--ghost" 
+              data-details-target="details-murabahah"
+              aria-expanded="false">
+              Selengkapnya
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
                     <!-- 3. Al-Musyarakah -->
                     <article class="tabungan-card" role="listitem" aria-labelledby="musyarakah-title">
