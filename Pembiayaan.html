@@ -160,68 +160,89 @@
   </div>
 </article>
 
-
-<section class="tabungan-section" id="murabahah">
-  <div class="kbms-container">
-    <h2 id="tabungan-title">Al-Murabahah</h2>
+<article class="tabungan-card" role="listitem" aria-labelledby="mudharabah-title"> 
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi pembiayaan Mudharabah" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
+  <div class="tabungan-body">
+    <h3 id="mudharabah-title" class="tabungan-title">Al-Mudharabah</h3>
     <p class="tabungan-lead">
-      Pembiayaan dengan akad jual beli, di mana margin disepakati di awal.
+      Kerjasama usaha antara pemilik modal (shahibul maal) dan pengelola usaha (mudharib). 
+      Keuntungan dibagi sesuai nisbah yang disepakati, kerugian ditanggung pemilik modal 
+      kecuali akibat kelalaian pengelola.
     </p>
 
-    <div class="tabungan-list">
-      <!-- Card Murabahah -->
-      <div class="tabungan-card">
-        <div class="tabungan-media">
-          <img src="assets/img/murabahah.jpg" alt="Al-Murabahah" class="tabungan-img">
-        </div>
-        <div class="tabungan-body">
-          <h3 class="tabungan-title">Pembiayaan Al-Murabahah</h3>
-          <ul class="tabungan-highlights">
-            <li>Akad Jual Beli dengan margin tetap</li>
-            <li>Untuk kebutuhan konsumtif maupun produktif</li>
-          </ul>
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Kategori:</strong> Investasi usaha produktif</li>
+      <li><strong>Skema:</strong> Bagi hasil (nisbah disepakati bersama)</li>
+    </ul>
 
-          <!-- Persyaratan -->
-          <div class="tabungan-details" id="req-murabahah" style="display:none;">
-            <div class="tabungan-more">
-              <h4>Persyaratan</h4>
-              <ul>
-                <li>Fotokopi KTP</li>
-                <li>Fotokopi KK</li>
-                <li>Slip gaji / keterangan penghasilan</li>
-              </ul>
-            </div>
-          </div>
+    <!-- Persyaratan -->
+    <div id="persyaratan-mudharabah" style="display: none;">
+      <h4>Cara Pengajuan Pembiayaan</h4>
+      <ul>
+        <li>Fotokopi KTP & Kartu Keluarga (KK)</li>
+        <li>Proposal usaha / rencana bisnis</li>
+        <li>Surat keterangan usaha dari desa/kelurahan</li>
+        <li>Isi formulir pengajuan pembiayaan Mudharabah</li>
+      </ul>
+    </div>
 
-          <!-- Selengkapnya -->
-          <details class="tabungan-details" id="details-murabahah">
-            <summary>Informasi Tambahan</summary>
-            <div class="tabungan-more">
-              <h4>Keunggulan</h4>
-              <p>Proses cepat, margin kompetitif, sesuai syariah.</p>
-            </div>
-          </details>
+    <!-- Selengkapnya -->
+    <details class="tabungan-details" id="selengkapnya-mudharabah">
+      <summary style="display: none;">Selengkapnya tentang Al-Mudharabah</summary>
+      <div class="tabungan-more">
+        <h4>Pengertian Pembiayaan</h4>
+        <p>
+          Al-Mudharabah adalah akad kerjasama usaha antara pemilik modal 
+          dengan pengelola usaha, di mana keuntungan dibagi berdasarkan nisbah 
+          yang telah disepakati. Pemilik modal menanggung kerugian sepanjang 
+          bukan karena kelalaian pengelola.
+        </p>
 
-          <!-- Aksi -->
-          <div class="tabungan-actions">
-            <button 
-              class="tabungan-btn" 
-              data-req-target="req-murabahah"
-              aria-expanded="false">
-              Cara Pengajuan
-            </button>
-            <button 
-              class="tabungan-btn--ghost" 
-              data-details-target="details-murabahah"
-              aria-expanded="false">
-              Selengkapnya
-            </button>
-          </div>
-        </div>
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Mendukung pengusaha mikro & kecil untuk berkembang</li>
+          <li>Pembiayaan sesuai prinsip syariah</li>
+          <li>Bagi hasil adil & transparan</li>
+          <li>Tanpa bunga, hanya nisbah sesuai kesepakatan</li>
+        </ul>
+
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Pendampingan usaha dari tim BMT</li>
+          <li>Laporan hasil usaha berkala</li>
+          <li>Kesempatan membangun jaringan usaha lebih luas</li>
+        </ul>
       </div>
+    </details>
+
+    <!-- Tombol Aksi -->
+    <div class="tabungan-actions">
+      <button 
+        type="button" 
+        class="tabungan-btn" 
+        data-req-target="persyaratan-mudharabah"
+        aria-controls="persyaratan-mudharabah"
+        aria-expanded="false">
+        Cara Pengajuan
+      </button>
+
+      <button 
+        type="button" 
+        class="tabungan-btn--ghost"
+        data-details-target="selengkapnya-mudharabah"
+        aria-controls="selengkapnya-mudharabah"
+        aria-expanded="false">
+        Selengkapnya
+      </button>
     </div>
   </div>
-</section>
+</article>
 
 
                     <!-- 3. Al-Musyarakah -->
