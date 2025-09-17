@@ -251,8 +251,7 @@ img {
   color: var(--kbms-accent);
   transform: translateY(-1px);
 }
-.kbms-nav a.is-active {
-  color: var(--kbms-accent);   /* hanya ganti warna tulisan */
+.kbms-nav a.is-active 
   background: transparent;     /* biar tidak ada background */
 }
 
