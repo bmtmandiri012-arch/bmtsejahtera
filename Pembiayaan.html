@@ -82,65 +82,84 @@
 
                     <!-- 1. Al-Murabahah -->
                     <article class="tabungan-card" role="listitem" aria-labelledby="murabahah-title">
-                        <div class="tabungan-media">
-                            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi pembiayaan Murabahah" loading="lazy" class="tabungan-img">
-                        </div>
-                        <div class="tabungan-body">
-                            <h3 id="murabahah-title" class="tabungan-title">Al-Murabahah</h3>
-                            <p class="tabungan-lead">Jual beli dengan margin disepakati; angsuran tetap & transparan. Cocok untuk pembelian barang/aset: kendaraan, mesin, perlengkapan usaha.</p>
-                            
-                            <!-- ✅ Highlights -->
-                            <ul class="tabungan-highlights">
-                                <li><strong>Kategori:</strong> Jual beli barang/aset</li>
-                                <li><strong>Skema:</strong> Angsuran tetap</li>
-                            </ul>
-                            <!-- ✅ End Highlights -->
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi pembiayaan Murabahah" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
+  <div class="tabungan-body">
+    <h3 id="murabahah-title" class="tabungan-title">Al-Murabahah</h3>
+    <p class="tabungan-lead">
+      Jual beli dengan margin disepakati; angsuran tetap & transparan. 
+      Cocok untuk pembelian barang/aset: kendaraan, mesin, perlengkapan usaha.
+    </p>
 
-                            <div id="persyaratan-murabahah" style="display: none;">
-                                <h4>Cara Pengajuan Pembiayaan</h4>
-                                <ul>
-                                    <li>Fotokopi KTP & Kartu Keluarga (KK)</li>
-                                    <li>Surat keterangan usaha</li>
-                                    <li>Uang muka sesuai kesepakatan</li>
-                                    <li>Isi formulir pengajuan pembiayaan</li>
-                                </ul>
-                            </div>
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Kategori:</strong> Jual beli barang/aset</li>
+      <li><strong>Skema:</strong> Angsuran tetap</li>
+    </ul>
 
-                            <details class="tabungan-details" id="selengkapnya-murabahah">
-                                <summary style="display: none;">Selengkapnya tentang Al-Murabahah</summary>
-                                <div class="tabungan-more">
-                                    <h4>Pengertian Pembiayaan</h4>
-                                    <p>Al-Murabahah adalah akad jual beli dimana penjual menyebutkan harga perolehan barang dan margin keuntungan disepakati bersama.</p>
-                                    <h4>Manfaat</h4>
-                                    <ul>
-                                        <li>Angsuran tetap dan transparan</li>
-                                        <li>Bisa untuk pembelian aset usaha</li>
-                                        <li>Proses mudah & sesuai syariah</li>
-                                        <li>Margin kompetitif berdasarkan prinsip syariah</li>
-                                    </ul>
-                                    <h4>Fitur Tambahan</h4>
-                                    <ul>
-                                        <li>Konsultasi pembiayaan dengan petugas</li>
-                                        <li>Laporan angsuran bulanan</li>
-                                        <li>Kemudahan pelunasan dipercepat</li>
-                                    </ul>
-                                </div>
-                            </details>
+    <!-- Persyaratan -->
+    <div id="persyaratan-murabahah" style="display: none;">
+      <h4>Cara Pengajuan Pembiayaan</h4>
+      <ul>
+        <li>Fotokopi KTP & Kartu Keluarga (KK)</li>
+        <li>Surat keterangan usaha</li>
+        <li>Uang muka sesuai kesepakatan</li>
+        <li>Isi formulir pengajuan pembiayaan</li>
+      </ul>
+    </div>
 
-                            <div class="tabungan-actions">
-                                <button type="button" class="tabungan-btn" onclick="const box = document.getElementById('persyaratan-murabahah'); 
-                                    box.style.display = box.style.display === 'block' ? 'none' : 'block';">
-                                    Cara Pengajuan
-                                </button>
-                                <button type="button" class="tabungan-btn--ghost"
-                                    onclick="const det = document.getElementById('selengkapnya-murabahah');
-                                             det.open = !det.open;
-                                             this.textContent = det.open ? 'Tutup' : 'Selengkapnya';">
-                                    Selengkapnya
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+    <!-- Selengkapnya -->
+    <details class="tabungan-details" id="selengkapnya-murabahah">
+      <summary style="display: none;">Selengkapnya tentang Al-Murabahah</summary>
+      <div class="tabungan-more">
+        <h4>Pengertian Pembiayaan</h4>
+        <p>
+          Al-Murabahah adalah akad jual beli dimana penjual menyebutkan 
+          harga perolehan barang dan margin keuntungan disepakati bersama.
+        </p>
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Angsuran tetap dan transparan</li>
+          <li>Bisa untuk pembelian aset usaha</li>
+          <li>Proses mudah & sesuai syariah</li>
+          <li>Margin kompetitif berdasarkan prinsip syariah</li>
+        </ul>
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Konsultasi pembiayaan dengan petugas</li>
+          <li>Laporan angsuran bulanan</li>
+          <li>Kemudahan pelunasan dipercepat</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Tombol Aksi -->
+    <div class="tabungan-actions">
+      <button 
+        type="button" 
+        class="tabungan-btn" 
+        data-req-target="persyaratan-murabahah"
+        aria-controls="persyaratan-murabahah"
+        aria-expanded="false">
+        Cara Pengajuan
+      </button>
+
+      <button 
+        type="button" 
+        class="tabungan-btn--ghost"
+        data-details-target="selengkapnya-murabahah"
+        aria-controls="selengkapnya-murabahah"
+        aria-expanded="false">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+</article>
+
 
                     <!-- 2. Al-Mudharabah -->
                     <article class="tabungan-card" role="listitem" aria-labelledby="mudharabah-title">
