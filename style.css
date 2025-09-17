@@ -242,12 +242,12 @@ img {
 }
  .kbms-nav-toggle span {
     display: block;
-    background: var(--kbms-accent);
+    color: var(--kbms-white);
     border-radius: 2px;
   }
 
 .kbms-nav a:hover {
-  background: transparent;
+  text-align: left;
   color: var(--kbms-accent);
   transform: translateY(-1px);
 }
@@ -1090,17 +1090,9 @@ img {
 }
 
 .kbms-nav a {
-  color: var(--kbms-white);
-  background: transparent;   /* default transparan */
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.kbms-nav a:hover,
-.kbms-nav a:focus,
-.kbms-nav a:active {
-  background: #fff;          /* putih saat disentuh/dihover */
-  color: var(--kbms-brand-1);/* teks hijau supaya kontras */
-  border-radius: 6px;        /* opsional: sudut lembut */
+  width: 100%;
+  text-align: left;
+  padding: 10px;
 }
 
 /* Tombol hamburger */
