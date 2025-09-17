@@ -242,7 +242,7 @@ img {
 }
  .kbms-nav-toggle span {
     display: block;
-    background: var(--kbms-white);
+    background: var(--kbms-accent);
     border-radius: 2px;
   }
 
