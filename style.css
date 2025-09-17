@@ -228,6 +228,7 @@ img {
   background: transparent;
 }
 .kbms-nav a {
+  text-align: left;
   padding: 8px 12px;
   border-radius: 10px;
   text-decoration: none;
@@ -251,8 +252,10 @@ img {
   transform: translateY(-1px);
 }
 .kbms-nav a.is-active {
-  background: rgba(255, 255, 255, 0.22);
+  color: var(--kbms-accent);   /* hanya ganti warna tulisan */
+  background: transparent;     /* biar tidak ada background */
 }
+
 
 /* =========================================================
     HERO & SLIDER
