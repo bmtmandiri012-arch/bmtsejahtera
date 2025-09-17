@@ -251,9 +251,6 @@ img {
   color: var(--kbms-accent);
   transform: translateY(-1px);
 }
-.kbms-nav a.is-active 
-  background: transparent;     /* biar tidak ada background */
-}
 
 
 /* =========================================================
