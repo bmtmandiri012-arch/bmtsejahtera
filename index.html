@@ -1,515 +1,315 @@
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-  // ---------- NAV TOGGLE ----------
-  const toggle = document.querySelector(".kbms-nav-toggle");
-  const nav = document.querySelector(".kbms-nav");
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
-  }
+<!doctype html>
+<html lang="id">
 
-  // ---------- SLIDER ----------
-  const container = document.querySelector(".kbms-slider");
-  const track = document.querySelector(".kbms-slider__wrapper");
-  if (!container || !track) {
-    console.warn("Slider: elemen tidak lengkap.");
-  } else {
-    const slides = track.querySelectorAll(".kbms-slide");
-    if (!slides.length) {
-      console.warn("Slider: tidak ada .kbms-slide.");
-    } else {
-      // Pastikan setiap slide pas 1 layar
-      slides.forEach((s) => {
-        s.style.minWidth = "100%";
-        s.style.flex = "0 0 100%";
-      });
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <title>Baitul Maal wa Tamwil — KSPPS BERKAH MANDIRI SEJAHTERA</title>
+  <meta name="description" content="KSPPS BERKAH MANDIRI SEJAHTERA — layanan keuangan syariah yang aman, mudah, dan cepat. Cek tabungan, pembiayaan, dan layanan digital kami." />
+  <meta name="keywords" content="KSPPS, BMT, tabungan, pembiayaan, perbankan syariah, koperasi" />
+  <meta name="author" content="KSPPS BERKAH MANDIRI SEJAHTERA" />
 
-      let index = 0;
-      let dragging = false;
-      let startX = 0;
-      let deltaX = 0;
-      let slideW = container.clientWidth;
-      let autoTimer = null;
+  <meta property="og:title" content="KSPPS BERKAH MANDIRI SEJAHTERA — Solusi Keuangan Syariah" />
+  <meta property="og:description" content="Layanan syariah yang aman, mudah, dan cepat." />
+  <meta property="og:image" content="https://bmtmandiri012-arch.github.io/gambar-web/bmt.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="#" />
 
-      const setX = (x, animate = false) => {
-        track.style.transition = animate ? "transform 280ms ease-out" : "none";
-        track.style.transform = `translate3d(${x}px,0,0)`;
-      };
+  <link rel="icon" href="/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="script.js?v=2" defer></script>
 
-      const goTo = (i, animate = true) => {
-        index = (i + slides.length) % slides.length;
-        setX(-index * slideW, animate);
-      };
+</head>
 
-      const startAuto = () => {
-        stopAuto();
-        autoTimer = setInterval(() => goTo(index + 1, true), 5000);
-      };
-      const stopAuto = () => {
-        if (autoTimer) clearInterval(autoTimer);
-        autoTimer = null;
-      };
+<body>
+  <a href="#kbms-main" class="skip-link">Lewati ke konten utama</a>
 
-      // Init
-      track.style.willChange = "transform";
-      track.style.backfaceVisibility = "hidden";
-      track.querySelectorAll("img").forEach((img) => {
-        img.setAttribute("draggable", "false");
-        img.setAttribute("decoding", "async");
-      });
-      goTo(0, false);
-      startAuto();
+  <header class="kbms-header" role="banner">
+    <div class="kbms-container kbms-header__inner">
+      <div class="kbms-header__top">
 
-      // Pointer events
-      container.style.touchAction = "pan-y";
-      container.addEventListener("pointerdown", (e) => {
-        dragging = true;
-        startX = e.clientX;
-        deltaX = 0;
-        stopAuto();
-        setX(-index * slideW, false);
-        try {
-          track.setPointerCapture && track.setPointerCapture(e.pointerId);
-        } catch {}
-      });
+        <div class="kbms-brand">
+          <a href="index.html" aria-label="Beranda KSPPS BMT BMS">
+            <img src="https://github.com/bmtmandiri012-arch/gambar-web/blob/main/bmt.jpg?raw=true" alt="Logo KSPPS BMS" class="kbms-brand__logo">
+          </a>
+          <div>
+            <h1 class="kbms-brand__title">KSPPS BMT BMS</h1>
+            <p class="kbms-brand__tagline">Layanan syariah aman & mudah</p>
+          </div>
+        </div>
 
-      container.addEventListener("pointermove", (e) => {
-        if (!dragging) return;
-        deltaX = e.clientX - startX;
-        setX(-index * slideW + deltaX, false);
-      });
+        <button class="kbms-nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-haspopup="true" aria-label="Toggle navigasi utama">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
-      const endDrag = (e) => {
-        if (!dragging) return;
-        dragging = false;
-        const thresh = Math.max(30, Math.min(80, slideW * 0.08));
-        if (Math.abs(deltaX) > thresh) {
-          goTo(deltaX < 0 ? index + 1 : index - 1, true);
-        } else {
-          goTo(index, true);
-        }
-        deltaX = 0;
-        startAuto();
-        try {
-          track.releasePointerCapture &&
-            track.releasePointerCapture(e.pointerId);
-        } catch {}
-      };
+        <form class="kbms-search">
+          <div class="kbms-search-wrapper">
+            <input id="q" name="q" type="search" placeholder="Cari produk, layanan..." autocomplete="off">
+            <ul id="suggestions" class="suggestions-list"></ul>
+          </div>
+          <button type="submit">🔍</button>
+        </form>
+      </div>
+      <nav id="main-nav" class="kbms-nav" aria-label="Navigasi utama">
+        <a class="is-active" href="#" aria-current="page">Beranda</a>
+        <a href="Tabungan.html">Tabungan</a>
+        <a href="#layanan">Layanan</a>
+        <a href="Pembiayaan.html">Pembiayaan</a>
+        <a href="#buka-rekening">Kontak</a>
+      </nav>
+    </div>
+  </header>
 
-      container.addEventListener("pointerup", endDrag);
-      container.addEventListener("pointercancel", endDrag);
-      container.addEventListener("pointerleave", endDrag);
+  <main id="kbms-main">
+    <section class="kbms-hero">
+      <div class="kbms-hero-slider">
+        <div class="kbms-slider">
+          <div class="kbms-slider__wrapper">
+            <div class="kbms-slide">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200" alt="Iklan produk tabungan syariah kami, mudah dan menguntungkan." draggable="false">
+            </div>
+            <div class="kbms-slide">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200" alt="Promo Pembiayaan untuk UMKM." draggable="false">
+            </div>
+            <div class="kbms-slide">
+              <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200" alt="Gratis Biaya Transfer dengan Aplikasi Mobile Banking." draggable="false">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      // Keyboard
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft") {
-          goTo(index - 1);
-          stopAuto();
-          startAuto();
-        }
-        if (e.key === "ArrowRight") {
-          goTo(index + 1);
-          stopAuto();
-          startAuto();
-        }
-      });
+<!-- About Section -->
+<section class="about-section">
+  <div class="kbms-container">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>KSPPS Berkah Mandiri Sejahtera</h2>
+        <p>Sejak tahun 2010, kami telah melayani masyarakat dengan prinsip keuangan syariah yang transparan dan adil. Dengan jaringan dua kantor di Bogor, kami hadir untuk membantu mencapai kesejahteraan finansial Anda.</p>
+        <p>Komitmen kami adalah memberikan layanan terbaik dengan mengutamakan kepercayaan dan kepuasan anggota.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&auto=format&fit=crop&q=60" alt="Kantor KSPPS Berkah Mandiri Sejahtera">
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Resize
-      window.addEventListener("resize", () => {
-        slideW = container.clientWidth;
-        goTo(index, false);
-      });
-    }
-  }
+<!-- Features Section -->
+<section class="features-section">
+  <div class="kbms-container">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>Prinsip Syariah</h3>
+        <p>Seluruh produk dan layanan kami berdasarkan prinsip syariah yang halal dan barokah</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Terpercaya</h3>
+        <p>Dipercaya oleh ribuan anggota sejak 2010 dengan pengelolaan profesional</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3>Jaringan Luas</h3>
+        <p>Melayani dari dua lokasi strategis di Kabupaten Bogor untuk kemudahan akses</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-award"></i>
+        </div>
+        <h3>Layanan Terbaik</h3>
+        <p>Memberikan pelayanan terbaik dengan mengutamakan kepuasan anggota</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  // ---------- JAM OPERASIONAL ----------
-  function updateDateTime() {
-    const now = new Date();
-    const timeElement = document.getElementById("current-time");
-    const dateElement = document.getElementById("current-date");
 
-    if (timeElement) {
-      const timeString = now.toLocaleTimeString("id-ID");
-      timeElement.textContent = timeString;
-    }
+    <!-- Section Pengumuman -->
+    <section class="kbms-section kbms-announcement">
+      <div class="kbms-container">
+        <h2>Informasi Terkini</h2>
 
-    if (dateElement) {
-      const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      };
-      const dateString = now.toLocaleDateString("id-ID", options);
-      dateElement.textContent = dateString;
-    }
+        <div class="announcement-cards">
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <div class="announcement-icon">
+                <i class="fas fa-bullhorn"></i>
+              </div>
+              <h3>Promo Bulanan</h3>
+            </div>
+            <p>Buka tabungan bulan ini dan dapatkan bonus merchandise eksklusif! Syarat dan ketentuan berlaku.</p>
+            <span class="announcement-date"><i>Berlaku hingga: 30 September 2025</i></span>
+          </div>
 
-    checkBusinessHours(now);
-  }
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <div class="announcement-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Perubahan Jam Operasional</h3>
+            </div>
+            <p>Mulai 1 Oktober 2025, jam operasional berubah menjadi 08:00-16:00 tanpa istirahat.</p>
+            <span class="announcement-date"><i>Diperbarui: 25 September 2025</i></span>
+          </div>
 
-  function checkBusinessHours(now) {
-    const statusElement = document.getElementById("status-indicator");
-    if (!statusElement) return;
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <div class="announcement-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3>Layanan Digital</h3>
+            </div>
+            <p>Kini semua transaksi dapat dilakukan melalui aplikasi mobile banking kami. Download sekarang!</p>
+            <span class="announcement-date"><i>Update terbaru</i></span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    const day = now.getDay();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const currentTimeInMinutes = hours * 60 + minutes;
+    <!-- Jam Operasional -->
+    <section class="kbms-section">
+      <div class="kbms-container">
+        <div class="operational-hours">
+          <h4 class="operational-hours__title">Jam Operasional</h4>
 
-    let status = "closed";
-    let statusText = "Tutup";
-    let statusDescription = "";
+          <div class="operational-hours__main">
+            <div class="operational-hours__time-container">
+              <div class="operational-hours__time" id="current-time">00:00:00</div>
+              <div class="operational-hours__date" id="current-date">Hari, DD MM YYYY</div>
+            </div>
 
-    if (day >= 1 && day <= 5) {
-      // Senin - Jumat
-      const morningOpen = 8 * 60;
-      const morningClose = 12 * 60;
-      const afternoonOpen = 13 * 60;
-      const afternoonClose = 16 * 60;
+            <div class="operational-hours__status-container">
+              <div class="operational-hours__status-label">Status:</div>
+              <div class="operational-hours__status" id="status-indicator">Memeriksa...</div>
+            </div>
+          </div>
 
-      if (
-        currentTimeInMinutes >= morningOpen &&
-        currentTimeInMinutes <= morningClose
-      ) {
-        status = "open";
-        statusText = "Buka";
-        const closingTime = new Date(now);
-        closingTime.setHours(12, 0, 0, 0);
-        statusDescription =
-          "Buka hingga " +
-          closingTime.toLocaleTimeString("id-ID", {
-            hour: "2-digit",
-            minute: "2-digit"
-          });
-      } else if (
-        currentTimeInMinutes >= afternoonOpen &&
-        currentTimeInMinutes <= afternoonClose
-      ) {
-        status = "open";
-        statusText = "Buka";
-        const closingTime = new Date(now);
-        closingTime.setHours(16, 0, 0, 0);
-        statusDescription =
-          "Buka hingga " +
-          closingTime.toLocaleTimeString("id-ID", {
-            hour: "2-digit",
-            minute: "2-digit"
-          });
-      } else if (
-        currentTimeInMinutes > morningClose &&
-        currentTimeInMinutes < afternoonOpen
-      ) {
-        status = "break";
-        statusText = "Istirahat";
-        const openingTime = new Date(now);
-        openingTime.setHours(13, 0, 0, 0);
-        statusDescription =
-          "Buka kembali " +
-          openingTime.toLocaleTimeString("id-ID", {
-            hour: "2-digit",
-            minute: "2-digit"
-          });
-      } else {
-        statusDescription = "Buka besok 08:00";
-      }
-    } else if (day === 6) {
-      // Sabtu
-      const openTime = 8 * 60;
-      const closeTime = 12 * 60 + 30;
-      if (
-        currentTimeInMinutes >= openTime &&
-        currentTimeInMinutes <= closeTime
-      ) {
-        status = "open";
-        statusText = "Buka";
-        const closingTime = new Date(now);
-        closingTime.setHours(12, 30, 0, 0);
-        statusDescription =
-          "Buka hingga " +
-          closingTime.toLocaleTimeString("id-ID", {
-            hour: "2-digit",
-            minute: "2-digit"
-          });
-      } else {
-        statusDescription = "Buka Senin 08:00";
-      }
-    } else if (day === 0) {
-      // Minggu
-      statusDescription = "Buka Senin 08:00";
-    }
+          <button class="operational-hours__schedule-toggle" onclick="toggleScheduleDetails()">
+            Lihat jadwal lengkap
+            <span id="schedule-arrow">▼</span>
+          </button>
 
-    statusElement.textContent = statusText;
-    statusElement.className =
-      "operational-hours__status operational-hours__status--" + status;
+          <div class="operational-hours__schedule" id="schedule-details">
+            <h5 class="operational-hours__schedule-title">Jadwal Operasional</h5>
 
-    if (statusDescription) {
-      statusElement.setAttribute("title", statusDescription);
-    }
-  }
+            <div class="operational-hours__schedule-grid">
+              <div class="operational-hours__day">
+                <span class="operational-hours__dayname">Senin - Jumat</span>
+                <span class="operational-hours__time-range">08:00 - 12:00<br>13:00 - 16:00</span>
+              </div>
+              <div class="operational-hours__day">
+                <span class="operational-hours__dayname">Sabtu</span>
+                <span class="operational-hours__time-range">08:00 - 12:30</span>
+              </div>
+              <div class="operational-hours__day">
+                <span class="operational-hours__dayname">Minggu</span>
+                <span class="operational-hours__time-range">Tutup</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section Produk Unggulan -->
+    <section class="featured-products">
+      <div class="kbms-container">
+        <h2>Dua Layanan Unggulan Kami</h2>
+        <p>Solusi keuangan syariah untuk kebutuhan tabungan dan pembiayaan Anda</p>
 
-  window.toggleScheduleDetails = function () {
-    const details = document.getElementById("schedule-details");
-    const arrow = document.getElementById("schedule-arrow");
-    if (details && arrow) {
-      details.classList.toggle("visible");
-      arrow.textContent = details.classList.contains("visible") ? "▲" : "▼";
-    }
-  };
+        <div class="products-container">
+          <div class="product-highlight">
+            <div class="product-icon">
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <h3>Tabungan Syariah</h3>
+            <p>Menabung dengan prinsip syariah yang halal dan barokah. Dapatkan manfaat dan keuntungan dengan sistem bagi hasil.</p>
+            <a href="Tabungan.html" class="product-cta">Info Tabungan</a>
+          </div>
 
-  // Update jam setiap detik
-  updateDateTime();
-  setInterval(updateDateTime, 1000);
+          <div class="product-highlight">
+            <div class="product-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Pembiayaan Syariah</h3>
+            <p>Akses pembiayaan untuk kebutuhan usaha, pendidikan, atau properti dengan skema syariah yang adil dan transparan.</p>
+            <a href="Pembiayaan.html" class="product-cta">Info Pembiayaan</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // ---------- SMART SEARCH SUGGESTIONS ----------
-  const searchInput = document.getElementById("q");
-  const suggestionsList = document.getElementById("suggestions");
-  const searchForm = document.querySelector(".kbms-search");
+    <!-- Section Testimoni -->
+    <section class="testimonials">
+      <div class="kbms-container">
+        <h2>Apa Kata Anggota Kami?</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Dengarkan pengalaman langsung dari anggota yang telah merasakan manfaat layanan kami</p>
 
-  // Database produk dan layanan dengan kategori
-  const searchDatabase = [
-    // TABUNGAN - semua kata kunci yang mengarah ke Tabungan.html
-    {
-      keywords: ["tabungan", "menabung", "simpanan"],
-      title: "Tabungan Syariah",
-      url: "Tabungan.html"
-    },
-    {
-      keywords: ["deposito", "berjangka", "investasi"],
-      title: "Deposito Berjangka",
-      url: "Tabungan.html"
-    },
-    {
-      keywords: ["kurban", "qurban", "tabungan kurban"],
-      title: "Tabungan Kurban",
-      url: "Tabungan.html"
-    },
-    {
-      keywords: ["pendidikan", "sekolah", "kuliah", "tabungan pendidikan"],
-      title: "Tabungan Pendidikan",
-      url: "Tabungan.html"
-    },
-    {
-      keywords: ["lebaran", "hari raya", "paket lebaran", "tabungan lebaran"],
-      title: "Paket Lebaran",
-      url: "Tabungan.html"
-    },
-    {
-      keywords: ["haji", "umroh", "umrah", "tabungan haji"],
-      title: "Tabungan Haji & Umroh",
-      url: "Tabungan.html"
-    },
-    {
-      keywords: ["wadiah", "mudharabah", "bagi hasil"],
-      title: "Produk Tabungan",
-      url: "Tabungan.html"
-    },
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"Sejak jadi anggota KSPPS BMS, saya bisa mengembangkan usaha kecil dengan pembiayaan syariah. Prosesnya mudah dan petugasnya ramah."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AS</div>
+              <div>
+                <strong>Ahmad Suryadi</strong>
+                <div>Pengusaha Kecil</div>
+              </div>
+            </div>
+          </div>
 
-    // PEMBIAYAAN - semua kata kunci yang mengarah ke Pembiayaan.html
-    {
-      keywords: ["pembiayaan", "pinjaman", "kredit"],
-      title: "Pembiayaan Syariah",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["murabahah", "murabaha", "jual beli"],
-      title: "Pembiayaan Murabahah",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["qardh", "qardhul", "qardh hasan", "pinjaman kebajikan"],
-      title: "Qardh Hasan",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["mudharabah", "bagi hasil", "kerjasama"],
-      title: "Pembiayaan Mudharabah",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["musyarakah", "syirkah", "kemitraan"],
-      title: "Pembiayaan Musyarakah",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["umkm", "usaha", "modal usaha", "bisnis"],
-      title: "Pembiayaan UMKM",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["rumah", "properti", "kpr", "perumahan"],
-      title: "Pembiayaan Rumah",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["motor", "mobil", "kendaraan", "otomotif"],
-      title: "Pembiayaan Kendaraan",
-      url: "Pembiayaan.html"
-    },
-    {
-      keywords: ["modal kerja", "working capital", "kas"],
-      title: "Pembiayaan Modal Kerja",
-      url: "Pembiayaan.html"
-    }
-  ];
+          <div class="testimonial-card">
+            <p class="testimonial-text">"Tabungan pendidikan untuk anak saya sudah terkumpul berkat program menabung yang disiplin di BMS. Sekarang anak saya bisa kuliah dengan tenang."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SD</div>
+              <div>
+                <strong>Siti Darmawan</strong>
+                <div>Ibu Rumah Tangga</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  if (searchInput && suggestionsList) {
-    // Fungsi untuk mencari suggestions
-    function showSuggestions(query) {
-      suggestionsList.innerHTML = "";
+  </main>
 
-      if (!query || query.length < 1) {
-        suggestionsList.style.display = "none";
-        return;
-      }
+  <footer class="kbms-footer" role="contentinfo">
+    <div class="kbms-container kbms-footer__inner">
+      <div>
+        <h4>KSPPS Berkah Mandiri Sejahtera</h4>
+        <p>Alamat kantor pusat Jl. Citeko Pasar Cisarua Blok C II No. 11A Kabupaten Bogor Telepon: (0251) 8298503, Indonesia</p>
+        <p>Kantor cabang Cariu: Jl. Brigjen Dharsono/Tonjong No.19 Cariu Kabupaten Bogor Telepon: (021) 89960188</p>
+      </div>
+      <div>
+        <h4>Bantuan</h4>
+        <ul>
+          <li><a href="#kontak">Kontak</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hubungi Kami</h4>
+        <p>Email: cs@kbms.example</p>
+        <p>Telp: (021) 1234 5678</p>
+      </div>
+    </div>
+    <div class="kbms-footer__bottom">
+      <small>© <span id="year"></span> KSPPS BMS. Semua hak cipta dilindungi.</small>
+    </div>
+  </footer>
 
-      const queryLower = query.toLowerCase();
-      const matches = [];
-      const addedTitles = new Set(); // Hindari duplikasi
+</body>
 
-      // Cari yang cocok dengan kata kunci
-      searchDatabase.forEach((item) => {
-        const isMatch = item.keywords.some(
-          (keyword) =>
-            keyword.toLowerCase().includes(queryLower) ||
-            queryLower.includes(keyword.toLowerCase())
-        );
-
-        if (isMatch && !addedTitles.has(item.title)) {
-          matches.push(item);
-          addedTitles.add(item.title);
-        }
-      });
-
-      // Batasi hasil maksimal 5 suggestions
-      const limitedMatches = matches.slice(0, 5);
-
-      if (limitedMatches.length === 0) {
-        suggestionsList.style.display = "none";
-        return;
-      }
-
-      // Buat elemen suggestion
-      limitedMatches.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.textContent = item.title;
-        li.tabIndex = 0;
-        li.style.cursor = "pointer";
-
-        // Highlight kata yang cocok
-        const regex = new RegExp(`(${queryLower})`, "gi");
-        if (item.title.toLowerCase().includes(queryLower)) {
-          li.innerHTML = item.title.replace(regex, "<strong>$1</strong>");
-        }
-
-        // Event click
-        li.addEventListener("click", () => {
-          searchInput.value = item.title;
-          suggestionsList.style.display = "none";
-          window.location.href = item.url;
-        });
-
-        // Event keyboard
-        li.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            searchInput.value = item.title;
-            suggestionsList.style.display = "none";
-            window.location.href = item.url;
-          } else if (e.key === "ArrowDown") {
-            e.preventDefault();
-            const nextItem = li.nextElementSibling;
-            if (nextItem) nextItem.focus();
-          } else if (e.key === "ArrowUp") {
-            e.preventDefault();
-            const prevItem = li.previousElementSibling;
-            if (prevItem) {
-              prevItem.focus();
-            } else {
-              searchInput.focus();
-            }
-          }
-        });
-
-        suggestionsList.appendChild(li);
-      });
-
-      suggestionsList.style.display = "block";
-    }
-
-    // Event input
-    searchInput.addEventListener("input", (e) => {
-      showSuggestions(e.target.value.trim());
-    });
-
-    // Event keyboard navigation untuk input
-    searchInput.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        const firstSuggestion = suggestionsList.querySelector("li");
-        if (firstSuggestion) firstSuggestion.focus();
-      } else if (e.key === "Escape") {
-        suggestionsList.style.display = "none";
-      }
-    });
-
-    // Handle form submit
-    if (searchForm) {
-      searchForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const query = searchInput.value.trim().toLowerCase();
-
-        if (!query) return;
-
-        // Cari match terbaik
-        let bestMatch = null;
-        let bestScore = 0;
-
-        searchDatabase.forEach((item) => {
-          item.keywords.forEach((keyword) => {
-            if (keyword.toLowerCase() === query) {
-              // Exact match = skor tertinggi
-              if (3 > bestScore) {
-                bestScore = 3;
-                bestMatch = item;
-              }
-            } else if (keyword.toLowerCase().includes(query)) {
-              // Partial match = skor sedang
-              if (2 > bestScore) {
-                bestScore = 2;
-                bestMatch = item;
-              }
-            } else if (query.includes(keyword.toLowerCase())) {
-              // Query contains keyword = skor rendah
-              if (1 > bestScore) {
-                bestScore = 1;
-                bestMatch = item;
-              }
-            }
-          });
-        });
-
-        if (bestMatch) {
-          window.location.href = bestMatch.url;
-        } else {
-          // Fallback: jika tidak ada match, beri tahu user
-          alert(
-            "Produk tidak ditemukan. Silakan coba kata kunci lain seperti 'tabungan' atau 'pembiayaan'."
-          );
-        }
-
-        suggestionsList.style.display = "none";
-      });
-    }
-
-    // Click outside untuk menutup suggestions
-    document.addEventListener("click", (e) => {
-      if (!searchForm.contains(e.target)) {
-        suggestionsList.style.display = "none";
-      }
-    });
-  }
-
-  // ---------- FOOTER YEAR ----------
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-});
+</html>
