@@ -329,67 +329,89 @@
   </div>
 </article>
 
-                    <!-- 4. Al-Ijarah -->
-                    <article class="tabungan-card" role="listitem" aria-labelledby="ijarah-title">
-                        <div class="tabungan-media">
-                            <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi pembiayaan Ijarah" loading="lazy" class="tabungan-img">
-                        </div>
-                        <div class="tabungan-body">
-                            <h3 id="ijarah-title" class="tabungan-title">Al-Ijarah</h3>
-                            <p class="tabungan-lead">Akad sewa untuk penggunaan barang/jasa dalam waktu tertentu, dengan biaya sewa disepakati.</p>
+<article class="tabungan-card" role="listitem" aria-labelledby="ijarah-title"> 
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi pembiayaan Ijarah" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
+  <div class="tabungan-body">
+    <h3 id="ijarah-title" class="tabungan-title">Al-Ijarah</h3>
+    <p class="tabungan-lead">
+      Akad pemindahan hak guna suatu barang atau jasa melalui mekanisme sewa, 
+      dengan biaya sewa (ujrah) yang jelas dan disepakati sejak awal.
+    </p>
 
-                            <!-- Highlights -->
-                            <ul class="tabungan-highlights">
-                                <li><strong>Kategori:</strong> Sewa</li>
-                                <li><strong>Skema:</strong> Ujrah (fee sewa)</li>
-                                
-                            </ul>
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Kategori:</strong> Sewa guna barang/jasa</li>
+      <li><strong>Skema:</strong> Ujrah (fee sewa)</li>
+    </ul>
 
-                            <div id="persyaratan-ijarah" style="display: none;">
-                                <h4>Cara Pengajuan Pembiayaan</h4>
-                                <ul>
-                                    <li>Identitas penyewa lengkap</li>
-                                    <li>Objek sewa jelas dan spesifik</li>
-                                    <li>Perjanjian waktu & biaya</li>
-                                    <li>Isi formulir pengajuan ijarah</li>
-                                </ul>
-                            </div>
+    <!-- Persyaratan -->
+    <div id="persyaratan-ijarah" style="display: none;">
+      <h4>Cara Pengajuan Pembiayaan</h4>
+      <ul>
+        <li>Fotokopi KTP & Kartu Keluarga (KK)</li>
+        <li>Identitas penyewa & objek sewa</li>
+        <li>Perjanjian waktu & biaya sewa yang jelas</li>
+        <li>Isi formulir pengajuan Ijarah</li>
+      </ul>
+    </div>
 
-                            <details class="tabungan-details" id="selengkapnya-ijarah">
-                                <summary style="display: none;">Selengkapnya tentang Al-Ijarah</summary>
-                                <div class="tabungan-more">
-                                    <h4>Pengertian Pembiayaan</h4>
-                                    <p>Al-Ijarah adalah akad pemindahan hak guna barang/jasa dengan imbalan sewa (ujrah).</p>
-                                    <h4>Manfaat</h4>
-                                    <ul>
-                                        <li>Bisa akses barang tanpa harus membeli</li>
-                                        <li>Jangka waktu fleksibel</li>
-                                        <li>Proses jelas & sesuai syariah</li>
-                                        <li>Biaya sewa yang kompetitif</li>
-                                    </ul>
-                                    <h4>Fitur Tambahan</h4>
-                                    <ul>
-                                        <li>Kontrak sewa yang jelas dan transparan</li>
-                                        <li>Maintenance barang selama masa sewa</li>
-                                        <li>Pilihan perpanjangan kontrak</li>
-                                    </ul>
-                                </div>
-                            </details>
+    <!-- Selengkapnya -->
+    <details class="tabungan-details" id="selengkapnya-ijarah">
+      <summary style="display: none;">Selengkapnya tentang Al-Ijarah</summary>
+      <div class="tabungan-more">
+        <h4>Pengertian Pembiayaan</h4>
+        <p>
+          Al-Ijarah adalah akad sewa di mana pihak penyewa mendapatkan 
+          hak guna barang atau jasa dalam jangka waktu tertentu, 
+          dengan imbalan biaya sewa (ujrah) sesuai kesepakatan.
+        </p>
 
-                            <div class="tabungan-actions">
-                                <button type="button" class="tabungan-btn" onclick="const box = document.getElementById('persyaratan-ijarah'); 
-                                    box.style.display = box.style.display === 'block' ? 'none' : 'block';">
-                                    Cara Pengajuan
-                                </button>
-                                <button type="button" class="tabungan-btn--ghost"
-                                    onclick="const det = document.getElementById('selengkapnya-ijarah');
-                                             det.open = !det.open;
-                                             this.textContent = det.open ? 'Tutup' : 'Selengkapnya';">
-                                    Selengkapnya
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Anggota bisa menggunakan barang tanpa harus membelinya</li>
+          <li>Biaya sewa lebih ringan dibanding membeli aset</li>
+          <li>Jangka waktu sewa fleksibel sesuai kebutuhan</li>
+          <li>Proses sesuai prinsip syariah</li>
+        </ul>
+
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Pilihan perpanjangan kontrak sewa</li>
+          <li>Biaya sewa transparan & kompetitif</li>
+          <li>Perawatan/maintenance aset bisa ditanggung pihak tertentu</li>
+          <li>Dokumen kontrak yang jelas & mengikat syariah</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Tombol Aksi -->
+    <div class="tabungan-actions">
+      <button 
+        type="button" 
+        class="tabungan-btn" 
+        data-req-target="persyaratan-ijarah"
+        aria-controls="persyaratan-ijarah"
+        aria-expanded="false">
+        Cara Pengajuan
+      </button>
+
+      <button 
+        type="button" 
+        class="tabungan-btn--ghost"
+        data-details-target="selengkapnya-ijarah"
+        aria-controls="selengkapnya-ijarah"
+        aria-expanded="false">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+</article>
+
 
                     <!-- 5. Al-Qardh -->
                     <article class="tabungan-card" role="listitem" aria-labelledby="qardh-title">
