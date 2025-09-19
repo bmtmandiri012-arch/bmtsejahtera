@@ -152,70 +152,89 @@
           </div>
         </article>
 
-        <!-- Tabungan Paket Lebaran -->
-        <article class="tabungan-card" role="listitem" aria-labelledby="t-lebaran">
-          <div class="tabungan-media">
-            <img src="https://images.unsplash.com/photo-1600180758890-1f9e86f7a1ee?w=1200&auto=format&fit=crop&q=60"
-                 alt="Ilustrasi tabungan lebaran"
-                 loading="lazy"
-                 class="tabungan-img">
-          </div>
+<!-- Tabungan Paket Lebaran -->
+<article class="tabungan-card" role="listitem" aria-labelledby="t-lebaran">
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1600180758890-1f9e86f7a1ee?w=1200&auto=format&fit=crop&q=60"
+         alt="Ilustrasi tabungan lebaran"
+         loading="lazy"
+         class="tabungan-img">
+  </div>
 
-          <div class="tabungan-body">
-            <h3 id="t-lebaran" class="tabungan-title">Tabungan Paket Lebaran</h3>
-            <p class="tabungan-lead">Rencanakan dana Idul Fitri dengan setoran berkala — tersedia paket harian/bulanan untuk mencapai target.</p>
+  <div class="tabungan-body">
+    <h3 id="t-lebaran" class="tabungan-title">Tabungan Paket Lebaran</h3>
+    <p class="tabungan-lead">
+      Rencanakan dana Idul Fitri dengan setoran berkala — tersedia paket harian/bulanan untuk mencapai target.
+    </p>
 
-            <ul class="tabungan-highlights">
-              <li><strong>Paket:</strong> Beragam (ringan → agresif)</li>
-              <li><strong>Pencairan:</strong> Dipercepat menjelang Idul Fitri</li>
-            </ul>
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Paket:</strong> Beragam (ringan → agresif)</li>
+      <li><strong>Pencairan:</strong> Dipercepat menjelang Idul Fitri</li>
+    </ul>
 
-            <div id="persyaratan-lebaran" class="persyaratan-pembiayaan" style="display: none;" aria-hidden="true">
-              <h4>Cara Ikut Paket Lebaran</h4>
-              <ul>
-                <li>Menjadi anggota KSPPS BMS</li>
-                <li>Fotokopi KTP / identitas</li>
-                <li>Mengisi formulir pendaftaran paket Lebaran</li>
-                <li>Memilih tenor (harian / bulanan) sesuai kebutuhan</li>
-              </ul>
-            </div>
+    <!-- Persyaratan -->
+    <div id="persyaratan-lebaran" class="persyaratan-pembiayaan" style="display: none;" aria-hidden="true">
+      <h4>Cara Ikut Paket Lebaran</h4>
+      <ul>
+        <li>Menjadi anggota KSPPS BMS</li>
+        <li>Fotokopi KTP / identitas</li>
+        <li>Mengisi formulir pendaftaran paket Lebaran</li>
+        <li>Memilih tenor (harian / bulanan) sesuai kebutuhan</li>
+      </ul>
+    </div>
 
-            <details class="tabungan-details" id="selengkapnya-lebaran">
-              <summary>Selengkapnya</summary>
-              <div class="tabungan-more">
-                <h4>Manfaat</h4>
-                <ul>
-                  <li>Target terukur untuk biaya lebaran</li>
-                  <li>Pilihan tenor fleksibel</li>
-                  <li>Tabungan aman berbasis syariah</li>
-                </ul>
-                <h4>Fitur Tambahan</h4>
-                <ul>
-                  <li>Pencairan otomatis menjelang Idul Fitri</li>
-                  <li>Notifikasi pengingat setoran</li>
-                </ul>
-              </div>
-            </details>
+    <!-- Selengkapnya -->
+    <details class="tabungan-details" id="selengkapnya-lebaran">
+      <summary style="display: none;">Selengkapnya tentang Tabungan Paket Lebaran</summary>
+      <div class="tabungan-more">
+        <h4>Pengertian Tabungan</h4>
+        <p>
+          Tabungan Paket Lebaran adalah program simpanan berjangka khusus yang dirancang 
+          untuk membantu anggota mempersiapkan kebutuhan Hari Raya Idul Fitri. 
+          Dengan setoran rutin (harian/bulanan), anggota dapat merencanakan dana secara 
+          terukur sehingga kebutuhan belanja lebaran dapat terpenuhi tanpa beban mendadak.
+        </p>
 
-            <div class="tabungan-actions">
-              <button type="button"
-                      class="tabungan-btn"
-                      data-req-target="persyaratan-lebaran"
-                      aria-controls="persyaratan-lebaran"
-                      aria-expanded="false">
-                Pilih Paket
-              </button>
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Target terukur untuk biaya lebaran</li>
+          <li>Pilihan tenor fleksibel sesuai kemampuan</li>
+          <li>Tabungan aman dan sesuai prinsip syariah</li>
+          <li>Membantu menghindari pengeluaran mendadak menjelang lebaran</li>
+        </ul>
 
-              <button type="button"
-                      class="tabungan-btn--ghost"
-                      data-details-target="selengkapnya-lebaran"
-                      aria-controls="selengkapnya-lebaran"
-                      aria-expanded="false">
-                Selengkapnya
-              </button>
-            </div>
-          </div>
-        </article>
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Pencairan otomatis menjelang Idul Fitri</li>
+          <li>Notifikasi pengingat setoran</li>
+          <li>Opsi penyesuaian nominal setoran di tengah periode</li>
+          <li>Bisa digabung dengan program tabungan lain untuk keluarga</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Tombol Aksi -->
+    <div class="tabungan-actions">
+      <button type="button"
+              class="tabungan-btn"
+              data-req-target="persyaratan-lebaran"
+              aria-controls="persyaratan-lebaran"
+              aria-expanded="false">
+        Pilih Paket
+      </button>
+
+      <button type="button"
+              class="tabungan-btn--ghost"
+              data-details-target="selengkapnya-lebaran"
+              aria-controls="selengkapnya-lebaran"
+              aria-expanded="false">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+</article>
+
 
         <!-- Tabungan Pendidikan -->
         <article class="tabungan-card" role="listitem" aria-labelledby="t-pendidikan">
