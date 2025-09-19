@@ -413,67 +413,89 @@
 </article>
 
 
-                    <!-- 5. Al-Qardh -->
-                    <article class="tabungan-card" role="listitem" aria-labelledby="qardh-title">
-                        <div class="tabungan-media">
-                            <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=1200&auto=format&fit=crop&q=60" alt="Ilustrasi pembiayaan Qardh" loading="lazy" class="tabungan-img">
-                        </div>
-                        <div class="tabungan-body">
-                            <h3 id="qardh-title" class="tabungan-title">Al-Qardh</h3>
-                            <p class="tabungan-lead">Pinjaman kebajikan tanpa imbalan, untuk kebutuhan darurat anggota.</p>
+<article class="tabungan-card" role="listitem" aria-labelledby="qardh-title"> 
+  <div class="tabungan-media">
+    <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=1200&auto=format&fit=crop&q=60" 
+         alt="Ilustrasi pembiayaan Qardh" 
+         loading="lazy" 
+         class="tabungan-img">
+  </div>
+  <div class="tabungan-body">
+    <h3 id="qardh-title" class="tabungan-title">Al-Qardh</h3>
+    <p class="tabungan-lead">
+      Pinjaman kebajikan tanpa imbalan (tanpa margin), 
+      untuk membantu kebutuhan mendesak anggota koperasi 
+      berdasarkan prinsip tolong-menolong.
+    </p>
 
-                            <!-- Highlights -->
-                            <ul class="tabungan-highlights">
-                                <li><strong>Kategori:</strong> Pinjaman kebajikan</li>
-                                <li><strong>Skema:</strong> Tanpa margin</li>
-                                
-                            </ul>
+    <!-- Highlights -->
+    <ul class="tabungan-highlights">
+      <li><strong>Kategori:</strong> Pinjaman kebajikan</li>
+      <li><strong>Skema:</strong> Tanpa margin/imbal hasil</li>
+    </ul>
 
-                            <div id="persyaratan-qardh" style="display: none;">
-                                <h4>Cara Pengajuan Pembiayaan</h4>
-                                <ul>
-                                    <li>Fotokopi KTP yang masih berlaku</li>
-                                    <li>Alasan kebutuhan darurat</li>
-                                    <li>Persetujuan pengurus</li>
-                                    <li>Isi formulir pengajuan qardh</li>
-                                </ul>
-                            </div>
+    <!-- Persyaratan -->
+    <div id="persyaratan-qardh" style="display: none;">
+      <h4>Cara Pengajuan Pembiayaan</h4>
+      <ul>
+        <li>Fotokopi KTP yang masih berlaku</li>
+        <li>Surat keterangan keadaan darurat/keperluan mendesak</li>
+        <li>Persetujuan pengurus koperasi</li>
+        <li>Isi formulir pengajuan Qardh</li>
+      </ul>
+    </div>
 
-                            <details class="tabungan-details" id="selengkapnya-qardh">
-                                <summary style="display: none;">Selengkapnya tentang Al-Qardh</summary>
-                                <div class="tabungan-more">
-                                    <h4>Pengertian Pembiayaan</h4>
-                                    <p>Al-Qardh adalah pinjaman kebajikan yang harus dikembalikan sama jumlahnya tanpa tambahan.</p>
-                                    <h4>Manfaat</h4>
-                                    <ul>
-                                        <li>Membantu kebutuhan darurat anggota</li>
-                                        <li>Ringan tanpa margin</li>
-                                        <li>Sesuai prinsip tolong-menolong</li>
-                                        <li>Proses cepat untuk kebutuhan mendesak</li>
-                                    </ul>
-                                    <h4>Fitur Tambahan</h4>
-                                    <ul>
-                                        <li>Tidak ada biaya administrasi</li>
-                                        <li>Jangka waktu pengembalian fleksibel</li>
-                                        <li>Pendampingan dalam pengelolaan keuangan</li>
-                                    </ul>
-                                </div>
-                            </details>
+    <!-- Selengkapnya -->
+    <details class="tabungan-details" id="selengkapnya-qardh">
+      <summary style="display: none;">Selengkapnya tentang Al-Qardh</summary>
+      <div class="tabungan-more">
+        <h4>Pengertian Pembiayaan</h4>
+        <p>
+          Al-Qardh adalah pinjaman kebajikan di mana anggota dapat 
+          meminjam dana tanpa tambahan biaya (tanpa bunga/margin) 
+          dan wajib mengembalikan sesuai jumlah pinjaman pokok.
+        </p>
 
-                            <div class="tabungan-actions">
-                                <button type="button" class="tabungan-btn" onclick="const box = document.getElementById('persyaratan-qardh'); 
-                                    box.style.display = box.style.display === 'block' ? 'none' : 'block';">
-                                    Cara Pengajuan
-                                </button>
-                                <button type="button" class="tabungan-btn--ghost"
-                                    onclick="const det = document.getElementById('selengkapnya-qardh');
-                                             det.open = !det.open;
-                                             this.textContent = det.open ? 'Tutup' : 'Selengkapnya';">
-                                    Selengkapnya
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+        <h4>Manfaat</h4>
+        <ul>
+          <li>Membantu anggota dalam keadaan darurat</li>
+          <li>Bebas dari biaya tambahan atau bunga</li>
+          <li>Mewujudkan prinsip tolong-menolong sesama anggota</li>
+          <li>Proses cepat dan sederhana</li>
+        </ul>
+
+        <h4>Fitur Tambahan</h4>
+        <ul>
+          <li>Tidak ada biaya administrasi tambahan</li>
+          <li>Jangka waktu pengembalian fleksibel</li>
+          <li>Dukungan konseling keuangan bagi anggota</li>
+          <li>Pendampingan pengelolaan dana darurat</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Tombol Aksi -->
+    <div class="tabungan-actions">
+      <button 
+        type="button" 
+        class="tabungan-btn" 
+        data-req-target="persyaratan-qardh"
+        aria-controls="persyaratan-qardh"
+        aria-expanded="false">
+        Cara Pengajuan
+      </button>
+
+      <button 
+        type="button" 
+        class="tabungan-btn--ghost"
+        data-details-target="selengkapnya-qardh"
+        aria-controls="selengkapnya-qardh"
+        aria-expanded="false">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+</article>
 
                 </div>
             </div>
